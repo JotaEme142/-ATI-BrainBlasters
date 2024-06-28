@@ -14,7 +14,4 @@ jobs:
       uses: docker/setup-buildx-action@v3
 
     - name: Build Docker images
-      run: docker-compose up --build
-
-    - name: Exit
-      run: exit
+      run: docker-compose build
