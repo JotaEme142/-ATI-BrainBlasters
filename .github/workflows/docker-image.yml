@@ -14,4 +14,4 @@ jobs:
       uses: docker/setup-buildx-action@v3
 
     - name: Build Docker images and start services
-      run: docker-compose up --build --exit-code-from django
+      run: docker-compose up --build
