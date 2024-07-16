@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Login & Registration Form </title>
+  <link rel="stylesheet" type="text/css" href="./css/login.css">
+</head>
+<body>
+  <header class="logo">
+    <h1>Brain</h1>
+    <img src="./icons/brain.svg" alt="brain">
+    <h1>Blasters</h1>
+  </header>
+  <content>
+    <div class="wrapper">
+      <div class="form-wrapper sign-in">
+        <form action="">
+          <h2>Iniciar Sesión</h2>
+          <div class="input-group">
+            <input type="text" required>
+            <label for="">Email</label>
+          </div>
+          <div class="input-group">
+            <input type="password" required>
+            <label for="">Contraseña</label>
+          </div>
+          <div class="remember">
+            <label><input type="checkbox"> Recuérdame</label>
+          </div>
+          <button type="submit"><a href="/HomeUser.html">Iniciar Sesión</a></button>
+          <div class="signUp-link">
+            <p>¿No tienes cuenta? <a href="#" class="signUpBtn-link">Regístrate</a></p>
+          </div>
+        </form>
+      </div>
+      <div class="form-wrapper sign-up">
+        <form action="">
+          <h2>Registro</h2>
+          <div class="input-group">
+            <input type="text" required>
+            <label for="">Nombre de Usuario</label>
+          </div>
+          <div class="input-group">
+            <input type="email" required>
+            <label for="">Email</label>
+          </div>
+          <div class="input-group">
+            <input type="password" required>
+            <label for="">Contraseña</label>
+          </div>
+          <div class="remember">
+            <label><input type="checkbox"> Acepto los terminos y condiciones</label>
+          </div>
+          <button type="submit"><a href="/login.html">Registrarme</a></button>
+          <div class="signUp-link">
+            <p>¿Ya tienes cuenta? <a href="#" class="signInBtn-link">Iniciar Sesión</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </content>
+  <script src="./js/login.js"></script>
+</body>
+</html>
