@@ -1,0 +1,377 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap'); 
+* {
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 100%;
+    height: 100vh;
+    margin: auto;
+    background-color:#1E1A20 ;
+    padding: 1em;
+    border-radius: 10px;
+}
+
+header{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    display: none;
+}
+
+header .profile{
+    order: 1;
+    margin-left: 20px;
+}
+
+header .profile img{
+    width: 50px;
+    height: 50px;
+}
+header .medal{
+    order: 3;
+    margin-right: 20px;
+}
+
+header .medal img{
+    width: 60px;
+    height: 60px;
+}
+
+.logo img{
+    width: 100px;
+    height: 100px;
+}
+
+.Brain, .Blasters{
+    color: #FFFFFF;
+    font-family: Poppins;
+}
+
+.Brain{
+    margin-right: 10px;
+}
+
+.Blasters{
+    margin-left: 10px;
+}
+
+.logo{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.play-icon{
+    width: 50px;
+    height: 50px;
+}
+
+.menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 20px;
+    width: 100px;
+   
+    order: 1;
+    
+}
+
+.menu ul li{
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.contenido{
+    display: flex;
+    flex-direction: row-reverse; /* Asegúrate de que los elementos hijos se coloquen en una fila */
+    
+    justify-content: space-between;
+    width: 60%;
+}
+
+.icon-menu {
+    width: 50px;
+    height: 50px;
+}
+
+.space{
+    height: 5px;
+    width: 98%;
+    margin-top: 10px;
+    background-color: #FFFFFF;
+    margin-left: 0;
+}
+
+footer{
+    background-color: #FFFFFF;
+    color: #1E1A20 ;
+    font-family: Poppins;
+    height: 20px;
+    width: 97%;
+    display: flex;
+    padding: 10px;
+    margin-top: 15%;
+}
+
+.container-trivia{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 60%;
+   
+    order: 2;
+    margin-left: 100px; /* Ajusta el margen según sea necesario */
+}
+
+.categoria{
+    color: #AF63EE;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    
+    margin-left: 50px;
+}
+
+.responder-trivia{
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #F1DAFF;
+    width: 100%;
+    height: 50vh;
+    margin-left: 40px;
+    margin-top: 30px;
+    border-radius: 20px;
+}
+
+.opciones{
+    display: flex;
+    flex-direction: column;
+}
+
+.opciones button{
+    width: 280px;
+    height: 40px;
+    background-color: #FFFFFF;
+    border-radius: 30px;
+    border: none;
+    margin-top: 20px;
+}
+
+.pregunta-respuesta{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.pregunta{
+    margin-bottom: 20px;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+
+.puntaje{
+    margin-top: 20px;
+    margin-left: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.puntaje img{
+    order: 3;
+}
+
+.puntaje button{
+    order: 1;
+    background-color: #AF63EE;
+    border: none;
+    padding: 15px;
+    border-radius: 20px;
+    margin-right: 100px;
+}
+.seleccionar-categoria{
+    font-family: Poppins;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #F1DAFF;
+    width: 60%;
+    height: 80%;
+    margin-left: 500px;
+    margin-top: 30px;
+    border-radius: 20px;
+}
+.aleatorio{
+    background-color: purple;
+    padding: 5px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius:30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+.aleatorio button{
+    border: none;
+    background-color: purple;
+    color: #ffffff;
+    margin-right: 10px;
+}
+
+/* Estilos para pantallas de hasta 480px de ancho (teléfonos móviles) */
+@media screen and (max-width: 480px) {
+    header{
+        width: 100%;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top:-380px ;
+    }
+    
+    header .profile{
+        order: 1;
+        margin-left: 80px;
+    }
+    .logo{
+        margin-top: 0px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 0;
+    }
+    
+    header .profile img{
+        width: 50px;
+        height: 50px;
+    }
+    
+    header .medal{
+        order: 3;
+        margin-right: 80px;
+    }
+    
+    header .medal img{
+        width: 60px;
+        height: 60px;
+    }
+    
+    footer{
+        display: none;
+    }
+    
+    .space{
+        display: none;
+    }
+    
+    .Brain, .Blasters{
+        display: none;
+    }
+    
+    .play-icon{
+        width: 60px;
+        height: 60px;
+    }
+    
+    .menu ul li{
+        list-style: none;
+        display: inline;
+        margin-left: 8px;
+    }
+    
+    .menu {
+        position: fixed;
+        margin-top: 110%;
+        width: 40vh;
+        align-items: center;
+        margin-bottom: 0;
+    }
+    
+    .icon-menu {
+        width: 40px;
+        height: 40px;
+    }
+
+    .contenido{
+        display: flex;
+       justify-content: center;
+       align-items: center;
+        width: 80%;
+        height: 50%;
+    }
+    .container-trivia{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 60%;
+       
+        order: 2;
+        margin-left: 100px; /* Ajusta el margen según sea necesario */
+    }
+    
+    .categoria{
+        color: #AF63EE;
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 0px;
+        
+        margin-left: 0px;
+    }
+    
+    .responder-trivia{
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #F1DAFF;
+        width: 80%;
+        height: 100%;
+        margin-left: 40px;
+        margin-top: 10px;
+        border-radius: 20px;
+        padding-bottom: 20px;
+    }
+
+  
+    .container{
+        width: 100%;
+        height: 100vh;
+        margin-top: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color:#1E1A20 ;
+        padding: 1em;
+        border-radius: 10px;
+    }
+}
+
+/* Estilos para pantallas entre 481px y 768px de ancho (tabletas) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    /* Ajustes adicionales para pantallas medianas */
+}
+
+/* Estilos para pantallas de más de 768px de ancho (escritorio) */
+@media screen and (min-width: 769px) {
+    /* Ajustes adicionales para pantallas grandes */
+}
