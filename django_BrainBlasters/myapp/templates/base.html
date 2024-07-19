@@ -1,0 +1,54 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Usuario</title>
+    <link rel="stylesheet" href='{% static "css/base.css" %}'>
+
+
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="profile">
+                <img src='{% static "icons/profile.svg" %}'>
+            </div>
+            
+            <div class="medal">
+                <img src='{% static "icons/medal.svg" %}' alt="">
+            </div>
+        </header>
+        
+            
+        
+        <div class="logo">
+            <h1 class="Brain">Brain</h1>
+            <img src='{% static "icons/brain.svg" %}' alt="brain">
+            <h1 class="Blasters">Blasters</h1>
+        </div>
+        
+        <div class="space"></div>
+        
+
+
+
+        <nav class="menu">
+            <ul class="lista-iconos">
+              <li><a href="#"><img src='{% static "icons/home.svg" %}' alt="home" class="icon-menu"></a></li>
+              <li><a href="#"><img src='{% static "icons/rankings.svg" %}' alt="ranking" class="icon-menu"></a></li>
+              <li><a href="#"><img src='{% static "icons/play.svg" %}' class="play-icon" alt="play"></a></li>
+              <li><a href="#"><img src='{% static "icons/User.svg" %}' alt="user" class="icon-menu"></a></li>
+              <li><a href="#"><img src='{% static "icons/help.svg" %}' alt="help" class="icon-menu"></a></li>
+              <li><a href="#"><img src='{% static "icons/log-out.svg" %}' alt="help" class="icon-menu log-out"></a></li>
+            </ul>
+          </nav>
+
+          
+    </div>
+
+    <footer>Copyright</footer>
+</body>
+</html>

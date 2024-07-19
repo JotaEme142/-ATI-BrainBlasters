@@ -1,5 +1,5 @@
 FROM python:3.12.4
-WORKDIR /proyecto
+WORKDIR /django_BrainBlasters
 RUN apt-get update
 RUN apt install sqlite3
 COPY requirements.txt .

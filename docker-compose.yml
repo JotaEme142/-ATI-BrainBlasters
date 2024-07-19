@@ -6,5 +6,5 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - .:/proyecto
-    command: "python ./proyecto/manage.py runserver 0.0.0.0:8000"
+      - .:/django_BrainBlasters
+    command: "python ./django_BrainBlasters/manage.py runserver 0.0.0.0:8000"
