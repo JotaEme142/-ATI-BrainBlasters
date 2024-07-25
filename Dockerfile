@@ -4,5 +4,7 @@ RUN apt-get update
 RUN apt install sqlite3
 COPY requirements.txt .
 RUN pip install -r requirements.txt
+#RUN pip install pillow
 COPY . .
-CMD ["python", "proyecto/manage.py", "runserver", "0.0.0.0:8000"]
+ENV PYTHONUNBUFFERED=1
+CMD ["python", "django_BrainBlasters/manage.py", "runserver", "0.0.0.0:8000"]

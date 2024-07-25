@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animated Login & Registration Form </title>
+  <link rel="stylesheet" href='{% static "./css/login.css" %}'>
+</head>
+
+<body>
+  <header class="logo">
+    <h1>Brain</h1>
+    <img src='{% static "./icons/brain.svg" %}' alt="brain">
+    <h1>Blasters</h1>
+  </header>
+  <content>
+    <div class="wrapper">
+      <div class="form-wrapper sign-in">
+
+        <form action="{% url 'login' %}" method="post">
+          {% csrf_token %}
+          {{ form1.as_p }}
+          <h2>Iniciar Sesión</h2>
+          <div class="input-group">
+            <input type="text" name="username" required>
+            <label for="">Email</label>
+          </div>
+          <div class="input-group">
+            <input type="password" name="password" required>
+            <label for="">Contraseña</label>
+          </div>
+          <div class="remember">
+            <label><input type="checkbox" name="remember_me"> Recuérdame</label>
+          </div>
+          <button type="submit" name="form1_submit">Iniciar Sesión</button>
+          <div class="signUp-link">
+            <p>¿No tienes cuenta? <a href="#" class="signUpBtn-link">Regístrate</a></p>
+          </div>
+        </form>
+      </div>
+      <div class="form-wrapper sign-up">
+        <form action="{% url 'register' %}" method="post">
+          {% csrf_token %}
+          {{ form2.as_p }}
+          <h2>Registro</h2>
+          <div class="input-group">
+            <input type="text" name="nombre_usuario" required>
+            <label for="">Nombre y Apellido de Usuario</label>
+          </div>
+          <div class="input-group">
+            <input type="text" name="alias" required>
+            <label for="">Alias</label>
+          </div>
+          <div class="input-group">
+            <input type="email" name="email" required>
+            <label for="">Email</label>
+          </div>
+          <div class="input-group">
+            <input type="password" name="password" required>
+            <label for="">Contraseña</label>
+          </div>
+          <div class="remember">
+            <label><input type="checkbox" name="acepto"> Acepto los terminos y condiciones</label>
+          </div>
+          <button type="submit" name="form2_submit">Registrarme</button>
+          <div class="signUp-link">
+            <p>¿Ya tienes cuenta? <a href="#" class="signInBtn-link">Iniciar Sesión</a></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </content>
+  <script src='{% static "./js/login.js" %}'></script>
+
+</body>
+
+</html>
