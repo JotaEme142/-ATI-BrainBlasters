@@ -36,7 +36,7 @@ def register(request):
             else:
                 # Manejar error de usuario ya existente
                 pass
-    return render(request, 'login.html')
+    return render(request, 'registration/login.html')
 
 def home_usuario(request):
     return render(request, 'home_jugador.html')

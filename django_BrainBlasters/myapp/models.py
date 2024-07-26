@@ -1,5 +1,6 @@
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager, PermissionsMixin
 from django.db import models
+from auditlog.models import AuditlogHistoryField
 
 class CustomUserManager(BaseUserManager):
     def create_user(self, email, password=None, **extra_fields):
@@ -16,14 +17,27 @@ class CustomUserManager(BaseUserManager):
         extra_fields.setdefault('is_superuser', True)
 
         return self.create_user(email, password, **extra_fields)
+    
+class BaseModel(models.Model):
+    created_by = models.ForeignKey('Usuario', on_delete=models.SET_NULL, null=True, related_name='%(class)s_created')
+    modified_by = models.ForeignKey('Usuario', on_delete=models.SET_NULL, null=True, related_name='%(class)s_modified')
+    history = AuditlogHistoryField()
 
-class Usuario(AbstractBaseUser, PermissionsMixin):
+    class Meta:
+        abstract = True
+
+class Usuario(AbstractBaseUser, PermissionsMixin, BaseModel):
     nombre = models.CharField(max_length=50)
     email = models.EmailField(max_length=50, unique=True)
     is_staff = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)  # Añadido el campo is_active
     password = models.CharField(max_length=128, unique=True)
     alias = models.CharField(max_length=50, unique=True)
+    ROLES = (
+        ('admin', 'Administrador'),
+        ('user', 'Usuario'),
+    )
+    role = models.CharField(max_length=10, choices=ROLES, default='user')
 
     objects = CustomUserManager()
 
