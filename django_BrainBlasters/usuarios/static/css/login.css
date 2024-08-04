@@ -12,11 +12,12 @@ body {
     align-items: center;
 }
 content {
-  margin-top: 150px;
+  margin-top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   background: #1E1A20;
+  flex-direction: column;
 }
 .logo{
   margin-top: 20px;
@@ -34,13 +35,14 @@ content {
 }
 .wrapper {
   position: relative;
-  width: 400px;
-  height: 500px;
+  width: 380px;
+  height: 450px;
   background: #1E1A20;
-  box-shadow: 0 0 50px #CF1673;
+  box-shadow: 0 0 30px #CF1673;
   border-radius: 20px;
   padding: 40px;
   overflow: hidden;
+  margin-top: 20px;
 }
 .form-wrapper {
   display: flex;
@@ -55,28 +57,28 @@ content {
 }
 .wrapper .form-wrapper.sign-up {
   position: absolute;
-  top: 450px;
+  top: 460px;
   left: 0;
 }
 .wrapper.active .form-wrapper.sign-up {
   transform: translateY(-450px);
 }
 h2 {
-  font-size: 30px;
+  font-size: 25px;
   color: #F1DAFF;
   text-align: center;
 }
 .input-group {
   position: relative;
-  margin: 30px 0;
+  margin: 20px 0;
   border-bottom: 2px solid #F1DAFF;
 }
 .input-group label {
   position: absolute;
-  top: 50%;
+  top: 30%;
   left: 5px;
   transform: translateY(-50%);
-  font-size: 16px;
+  font-size: 12px;
   color: #F1DAFF;
   pointer-events: none;
   transition: .5s;
@@ -84,9 +86,9 @@ h2 {
 .input-group input {
   width: 320px;
   height: 40px;
-  font-size: 16px;
+  font-size: 12px;
   color: #F1DAFF;
-  padding: 0 5px;
+  padding: 0 3px;
   background: transparent;
   border: none;
   outline: none;
@@ -101,7 +103,7 @@ h2 {
 }
 .remember label {
   color: #F1DAFF;
-  font-size: 14px;
+  font-size: 12px;
 }
 .remember label input {
   accent-color: #2BCCC6;
@@ -112,7 +114,7 @@ button {
   height: 40px;
   background: #2BCCC6;
   box-shadow: 0 0 10px #2BCCC6;
-  font-size: 16px;
+  font-size: 14px;
   color: #1E1A20;
   font-weight: 500;
   cursor: pointer;
@@ -141,7 +143,7 @@ button a:active {
   color: #1E1A20
 }
 .signUp-link {
-  font-size: 14px;
+  font-size: 12px;
   text-align: center;
   margin: 15px 0;
 }
@@ -155,6 +157,19 @@ button a:active {
 }
 .signUp-link p a:hover {
   text-decoration: underline;
+}
+
+.hidden{}
+
+.message-container{
+  color: #ffffff;
+  margin-bottom: 30px;
+  margin-top: 0;
+
+}
+
+.message-container ul li{
+  list-style: none;
 }
 
 @media only screen and (max-width: 600px) {

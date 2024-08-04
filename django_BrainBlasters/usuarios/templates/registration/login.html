@@ -6,7 +6,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Animated Login & Registration Form </title>
+  <title>BrainBlasters</title>
+  <link rel="shortcut icon" href='{% static "./icons/brain.svg" %}'>
   <link rel="stylesheet" href='{% static "./css/login.css" %}'>
 </head>
 
@@ -16,8 +17,21 @@
     <img src='{% static "./icons/brain.svg" %}' alt="brain">
     <h1>Blasters</h1>
   </header>
+
   <content>
+    {% if messages %}
+    <div class="message-container">
+    <ul id="message-container">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                {{ message }}
+            </li>
+        {% endfor %}
+    </ul>
+  </div>
+  {% endif %}
     <div class="wrapper">
+
       <div class="form-wrapper sign-in">
 
         <form action="{% url 'login' %}" method="post">
@@ -41,23 +55,29 @@
           </div>
         </form>
       </div>
+      
       <div class="form-wrapper sign-up">
+
         <form action="{% url 'register' %}" method="post">
           {% csrf_token %}
           {{ form2.as_p }}
           <h2>Registro</h2>
+          
           <div class="input-group">
             <input type="text" name="nombre_usuario" required>
             <label for="">Nombre y Apellido de Usuario</label>
           </div>
+          
           <div class="input-group">
             <input type="text" name="alias" required>
             <label for="">Alias</label>
           </div>
+          
           <div class="input-group">
             <input type="email" name="email" required>
             <label for="">Email</label>
           </div>
+          
           <div class="input-group">
             <input type="password" name="password" required>
             <label for="">Contraseña</label>
