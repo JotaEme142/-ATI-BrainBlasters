@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-responder_categoria">
+    <div class="logo">
+        <h2 class="title_resCat">{{ categoria_nombre }}</h2>
+    </div>
+
+    <form class="res_Cat" method="post" action="">
+        {% csrf_token %}
+        <h2 class="title_preg">{{ trivia.pregunta }}</h2>
+        {% if triva.tipo %}
+        <button type="submit" class="boton_categoria" value="{{ categoria.id }}">{{ trivia.opcion_img1 }}</button>
+        <button type="submit" class="boton_categoria" value="{{ categoria.id }}">{{ trivia.opcion_img2 }}</button>
+        <button type="submit" class="boton_categoria" value="{{ categoria.id }}">{{ trivia.opcion_img3 }}</button>
+        <button type="submit" class="boton_categoria" value="{{ categoria.id }}">{{ trivia.opcion_img4 }}</button>
+        {% else %}
+        <button type="submit" class="boton_categoria" value="{{ categoria.id }}">{{ trivia.opcion_txt1 }}</button>
+        <button type="submit" class="boton_categoria" value="{{ categoria.id }}">{{ trivia.opcion_txt2 }}</button>
+        <button type="submit" class="boton_categoria" value="{{ categoria.id }}">{{ trivia.opcion_txt3 }}</button>
+        <button type="submit" class="boton_categoria" value="{{ categoria.id }}">{{ trivia.opcion_txt4 }}</button>
+        {% endif %}
+        <div class="timer">
+            <div class="timer-bar" id="timer-bar"></div>
+        </div>
+        <div class="interactuar">
+            <div class="score">
+                <p>Puntaje: {{ puntaje_acumulado }}</p>
+            </div>
+            <div class="skip">
+                <button type="button" class="boton_saltar" onclick="skipQuestion()">Saltar</button>
+            </div>
+
+        </div>
+    </form>
+</div>
+<script src='{% static "./js/respondercategoria.js" %}'></script>
+{% endblock %}

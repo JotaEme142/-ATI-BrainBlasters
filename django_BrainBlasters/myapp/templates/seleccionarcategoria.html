@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container-seleccionar_categoria">
+    <div class="logo">
+        <img class="logo1" src='{% static "icons/cerebro.svg" %}'>
+    </div>
+    
+    <form class="sel_Cat" method="post" action="{% url 'respondercategoria' %}">
+        {% csrf_token %}
+        <h2 class="title_selCat">Selecciona Categoría</h2>
+        {% for categoria in categorias %}
+            <button type="submit" class="boton_categoria" value="{{ categoria.id }}" name="categoria_id">{{ categoria.nombre }}</button>
+        {% endfor %}
+    </form>
+</div>
+
+{% endblock %}

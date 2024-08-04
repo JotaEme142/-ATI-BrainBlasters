@@ -3,10 +3,12 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    {% load static %}
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Usuario</title>
     <link rel="stylesheet" href='{% static "css/base.css" %}'>
+    
 
 
 </head>
@@ -32,15 +34,17 @@
         
         <div class="space"></div>
         
+        <div class="content">
+        
         {% block content %}
         
         {% endblock %}
-
+    
         <nav class="menu">
             <ul class="lista-iconos">
               <li><a href="#"><img src='{% static "icons/home.svg" %}' alt="home" class="icon-menu"></a></li>
               <li><a href="#"><img src='{% static "icons/rankings.svg" %}' alt="ranking" class="icon-menu"></a></li>
-              <li><a href="#"><img src='{% static "icons/play.svg" %}' class="play-icon" alt="play"></a></li>
+              <li><a href="{% url 'seleccionarcategoria' %}"><img src='{% static "icons/play.svg" %}' class="play-icon" alt="play"></a></li>
               <li><a href="#"><img src='{% static "icons/User.svg" %}' alt="user" class="icon-menu"></a></li>
               <li><a href="#"><img src='{% static "icons/help.svg" %}' alt="help" class="icon-menu"></a></li>
 
@@ -49,7 +53,7 @@
             
             </ul>
           </nav>
-
+        </div>
           
     </div>
 

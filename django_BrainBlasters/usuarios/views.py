@@ -3,6 +3,7 @@ from django.contrib.auth import authenticate, login as auth_login
 from django.contrib.auth import get_user_model, logout
 from django.contrib.auth.decorators import login_required
 
+
 User = get_user_model()
 
 @login_required
@@ -44,3 +45,4 @@ def home_usuario(request):
 def exit(request):
     logout(request)
     return redirect('login')
+

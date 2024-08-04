@@ -1,317 +1,156 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap'); 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
 * {
     margin: 0;
     padding: 0;
 }
 
-
+/*******************************************************************************************************/
+/*******************************************************************************************************/
+/*******************************************************************************************************/
+/*******************************************************************************************************/
 /* Estilos para pantallas de hasta 480px de ancho (teléfonos móviles) */
 @media screen and (max-width: 480px) {
-    body{
-        background-color:#1E1A20 ;
+    body {
+        background-color: #1E1A20;
     }
-    .container{
+
+    .container {
         width: 100%;
         height: 92vh;
         margin: auto;
-        background-color:#1E1A20 ;
+        background-color: #1E1A20;
         padding: 1em;
-        
-       
-       
     }
-    
-    header{
-        
+
+    header {
+
         width: 100%;
         height: 100px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-    
-      
-    
     }
-    
-    header .profile{
+
+    header .profile {
         order: 1;
         margin-left: 40px;
     }
-    
-    header .profile img{
+
+    header .profile img {
         width: 50px;
         height: 50px;
-    
+
     }
-    header .medal{
+
+    header .medal {
         order: 3;
         margin-right: 40px;
-    
+
     }
-    header .medal img{
+
+    header .medal img {
         width: 60px;
         height: 60px;
     }
-    .logo img{
+
+    .logo img {
         width: 100px;
         height: 100px;
-     
+
     }
-    .Brain, .Blasters{
+
+    .Brain,
+    .Blasters {
         color: #FFFFFF;
         font-family: Poppins;
     }
-    .Brain{
-        
+
+    .Brain {
+
         display: none;
     }
-    .Blasters{
+
+    .Blasters {
         display: none;
     }
-    
-    .logo{
+
+    .logo {
         margin-top: 20px;
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    .play-icon{
+
+    .play-icon {
         width: 80px;
         height: 80px;
     }
+
     .menu {
         flex-shrink: 0;
         display: flex;
         align-items: center;
         justify-content: center;
-        width:85%;
-       
-        position: fixed;
-        bottom: 10em;
-        margin-left: 30px;
-        
-        
+        width: 85%;
 
-        
-        }
-    .menu ul li{
+        position: fixed;
+        bottom: 0em;
+        margin-left: 30px;
+        background-color: #1E1A20;
+        padding: 10px;
+
+
+
+    }
+
+    .menu ul li {
         list-style: none;
         display: inline;
         margin-left: 10px;
         margin-right: 10px;
         margin-bottom: 20px;
-    
+
     }
-    
+
     .icon-menu {
         width: 50px;
         height: 50px;
-        
+
     }
-    .log-out{
+
+    .log-out {
         display: none;
     }
-    
-    .space{
+
+    .space {
         display: none;
     }
-    
+
     footer {
-       display: none;
-       
-      }
-      
-      .contenido{
-     
+        display: none;
+
+    }
+
+    .contenido {
+
         font-family: Poppins;
         display: flex;
-        
+
         justify-content: center;
         align-items: center;
         flex-direction: column;
         background-color: #F1DAFF;
         width: 80%;
         height: 80%;
-       
+
         margin-top: 0px;
         border-radius: 20px;
         margin-bottom: 20px;
-    
-  }
 
-  .items{
-    padding-top: 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding-bottom: 20px;
-}
+    }
 
-.options{
-    display: flex;
-    flex-direction: column;
-}
-
-.options button{
-    width: 280px;
-    height: 40px;
-    background-color: #ffffff;
-    border-radius: 30px;
-    border: none;
-    margin-top: 20px;
-    
-}
-
-.contenedor{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-   
-    width: 100%;
-    height: 100vh;
-    color: #1E1A20;
-    
-}
-
-}
-
-/* Estilos para pantallas entre 481px y 768px de ancho (tabletas) */
-@media screen and (min-width: 481px) and (max-width: 768px) {
-    body{
-        background-color:#1E1A20 ;
-    }
-    .container{
-        width: 100%;
-        height: 92vh;
-        margin: auto;
-        background-color:#1E1A20 ;
-        padding: 1em;
-        
-       
-       
-    }
-    
-    header{
-        
-        width: 100%;
-        height: 100px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    
-      
-    
-    }
-    
-    header .profile{
-        order: 1;
-        margin-left: 60px;
-    }
-    
-    header .profile img{
-        width: 50px;
-        height: 50px;
-    
-    }
-    header .medal{
-        order: 3;
-        margin-right: 60px;
-    
-    }
-    header .medal img{
-        width: 60px;
-        height: 60px;
-    }
-    .logo img{
-        width: 100px;
-        height: 100px;
-     
-    }
-    .Brain, .Blasters{
-        color: #FFFFFF;
-        font-family: Poppins;
-    }
-    .Brain{
-        
-        display: none;
-    }
-    .Blasters{
-        display: none;
-    }
-    
-    .logo{
-        margin-top: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-    .play-icon{
-        width: 80px;
-        height: 80px;
-    }
-    .menu {
-        flex-shrink: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width:85%;
-       
-        
-        bottom: 2em;
-        margin-left: 30px;
-        top: 2empx;
-        
-        
-
-        
-        }
-    .menu ul li{
-        list-style: none;
-        display: inline;
-        margin-left: 10px;
-        margin-right: 10px;
-        margin-bottom: 20px;
-    
-    }
-    
-    .icon-menu {
-        width: 50px;
-        height: 50px;
-        
-    }
-    .log-out{
-        display: none;
-    }
-    
-    .space{
-        display: none;
-    }
-    
-    footer {
-       display: none;
-       
-      }
-      .contenido{
-     
-            font-family: Poppins;
-            display: flex;
-            
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            background-color: #F1DAFF;
-            width: 80%;
-            height: 80%;
-           
-            margin-top: 0px;
-            border-radius: 20px;
-            margin-bottom: 20px;
-        
-      }
-
-      .items{
+    .items {
         padding-top: 20px;
         display: flex;
         justify-content: center;
@@ -319,173 +158,221 @@
         flex-direction: column;
         padding-bottom: 20px;
     }
-    
-    .options{
+
+    .options {
         display: flex;
         flex-direction: column;
     }
-    
-    .options button{
+
+    .options button {
         width: 280px;
         height: 40px;
         background-color: #ffffff;
         border-radius: 30px;
         border: none;
         margin-top: 20px;
-        
+
     }
 
-    .contenedor{
+    .contenedor {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: column;
-       
+
         width: 100%;
         height: 100vh;
         color: #1E1A20;
-        
+
     }
-    
+
+
+    .contenedor {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        width: 100%;
+        height: 100vh;
+        color: #1E1A20;
+
+    }
+
+    .content {
+
+        width: 98%;
+        height: 100vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 0;
+
+
+
+    }
+
+    .container-home_jugador {
+
+        width: 80%;
+        height: 90%;
+        margin: auto;
+        background-color: #ffffff;
+        padding: 20px;
+
+    }
+
 }
 
-/* Estilos para pantallas de más de 768px de ancho (escritorio) */
-@media screen and (min-width: 768px) {
-
-    body{
-        background-color:#1E1A20 ;
-
+/*******************************************************************************************************/
+/*******************************************************************************************************/
+/*******************************************************************************************************/
+/*******************************************************************************************************/
+/* Estilos para pantallas entre 481px y 768px de ancho (tabletas) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+    body {
+        background-color: #1E1A20;
     }
-    .container{
+
+    .container {
         width: 100%;
-        height: 95%;
+        height: 92vh;
         margin: auto;
-        background-color:#1E1A20 ;
+        background-color: #1E1A20;
         padding: 1em;
-       
     }
-    
-    header{
-        
+
+    header {
+
         width: 100%;
         height: 100px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-        display: none;
-      
-    
+
+
+
     }
-    
-    header .profile{
+
+    header .profile {
         order: 1;
-        margin-left: 20px;
+        margin-left: 60px;
     }
-    
-    header .profile img{
+
+    header .profile img {
         width: 50px;
         height: 50px;
-    
+
     }
-    header .medal{
+
+    header .medal {
         order: 3;
-        margin-right: 20px;
-    
+        margin-right: 60px;
+
     }
-    header .medal img{
+
+    header .medal img {
         width: 60px;
         height: 60px;
     }
-    .logo img{
+
+    .logo img {
         width: 100px;
         height: 100px;
-     
+
     }
-    .Brain, .Blasters{
+
+    .Brain,
+    .Blasters {
         color: #FFFFFF;
         font-family: Poppins;
     }
-    .Brain{
-        
-        margin-right: 10px;
+
+    .Brain {
+
+        display: none;
     }
-    .Blasters{
-        
-        margin-left: 10px;
+
+    .Blasters {
+        display: none;
     }
-    .logo{
+
+    .logo {
         margin-top: 20px;
         display: flex;
         justify-content: center;
         align-items: center;
     }
-    .play-icon{
-        width: 50px;
-        height: 50px;
+
+    .play-icon {
+        width: 80px;
+        height: 80px;
     }
+
     .menu {
+        flex-shrink: 0;
         display: flex;
-        align-items: flex-start;
-        margin-top: 50px;
-        width:100px;
-        justify-content: space-around;
-        
-        }
-    .menu ul li{
-        list-style: none;
-        flex-direction: column;
-        
-        margin-bottom: 20px;
-    
+        align-items: center;
+        justify-content: center;
+        width: 85%;
+        position: fixed;
+        bottom: 0em;
+        margin-left: 30px;
+        padding: 10px;
+        background-color: #1E1A20;
+
+
+
+
     }
-    
+
+    .menu ul li {
+        list-style: none;
+        display: inline;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 20px;
+
+    }
+
     .icon-menu {
         width: 50px;
         height: 50px;
-        
+
     }
-    .log-out{
-        margin-top: 100px;
+
+    .log-out {
+        display: none;
     }
-    
-    .space{
-        height: 5px;
-        width: 98%;
-        margin-top: 10px;
-        background-color: #FFFFFF;
-        margin-left: 0;
+
+    .space {
+        display: none;
     }
-    
+
     footer {
-        flex-shrink: 0;
-        width: 97%;
-        background-color: #FFFFFF;
-        color: #1E1A20 ;
+        display: none;
+
+    }
+
+    .contenido {
+
         font-family: Poppins;
-        margin-left: 1em;
-        padding: 10px;
-        margin-bottom: 1em;
-       
-      }
+        display: flex;
 
-      .contenido{
-     
-            font-family: Poppins;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            background-color: #F1DAFF;
-            width: 60%;
-            height: 80%;
-            margin-left: 500px;
-            margin-right: 400px;
-            margin-top: 30px;
-            border-radius: 20px;
-        
-      }
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #F1DAFF;
+        width: 80%;
+        height: 80%;
+        margin-top: 0px;
+        border-radius: 20px;
+        margin-bottom: 20px;
 
-      .items{
+    }
+
+    .items {
         padding-top: 20px;
         display: flex;
         justify-content: center;
@@ -493,13 +380,260 @@
         flex-direction: column;
         padding-bottom: 20px;
     }
-    
-    .options{
+
+    .options {
         display: flex;
         flex-direction: column;
     }
-    
-    .options button{
+
+    .options button {
+        width: 280px;
+        height: 40px;
+        background-color: #ffffff;
+        border-radius: 30px;
+        border: none;
+        margin-top: 20px;
+
+    }
+
+    .contenedor {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+
+        width: 100%;
+        height: 100vh;
+        color: #1E1A20;
+
+    }
+
+    .content {
+
+        width: 98%;
+        height: 100vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        margin-top: 0;
+
+
+
+    }
+
+    .container-home_jugador {
+
+        width: 80%;
+        height: 90%;
+        margin: auto;
+        background-color: #ffffff;
+        padding: 20px;
+
+    }
+
+}
+
+/*******************************************************************************************************/
+/*******************************************************************************************************/
+/*******************************************************************************************************/
+/*******************************************************************************************************/
+/* Estilos para pantallas de más de 768px de ancho (escritorio) */
+@media screen and (min-width: 768px) {
+
+
+    body {
+        background-color: #1E1A20;
+
+    }
+
+    .container {
+        width: 100%;
+        height: 95%;
+        margin: auto;
+        background-color: #1E1A20;
+        padding: 1em;
+
+
+    }
+
+    .content {
+
+        width: 98%;
+        height: 100vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: row-reverse;
+        margin-top: 0;
+
+
+
+    }
+
+    .container-seleccionar_categoria, .container-responder_categoria {
+        width: 70%;
+        margin: auto;
+        background-color: #1E1A20;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 90vh;
+    }
+
+    header {
+
+        width: 100%;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        display: none;
+    }
+
+    .seleccionarCat {
+        height: 135%;
+        margin-top: 10%;
+    }
+
+    header .profile {
+        order: 1;
+        margin-left: 20px;
+    }
+
+    header .profile img {
+        width: 50px;
+        height: 50px;
+
+    }
+
+    header .medal {
+        order: 3;
+        margin-right: 20px;
+
+    }
+
+    header .medal img {
+        width: 60px;
+        height: 60px;
+    }
+
+    .logo img {
+        width: 100px;
+        height: 100px;
+
+    }
+
+    .Brain,
+    .Blasters {
+        color: #FFFFFF;
+        font-family: Poppins;
+    }
+
+    .Brain {
+
+        margin-right: 10px;
+    }
+
+    .Blasters {
+
+        margin-left: 10px;
+    }
+
+    .logo {
+        margin-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .play-icon {
+        width: 50px;
+        height: 50px;
+    }
+
+    .menu {
+        display: flex;
+        align-items: flex-start;
+        margin-top: 50px;
+        width: 100px;
+        height: 100vh;
+        justify-content: space-around;
+
+
+    }
+
+    .menu ul li {
+        list-style: none;
+        flex-direction: column;
+
+        margin-bottom: 20px;
+
+    }
+
+    .icon-menu {
+        width: 50px;
+        height: 50px;
+
+    }
+
+    .log-out {
+        margin-top: 100px;
+    }
+
+    .space {
+        height: 5px;
+        width: 98%;
+        margin-top: 10px;
+        background-color: #FFFFFF;
+        margin-left: 0;
+    }
+
+    footer {
+        flex-shrink: 0;
+        width: 97%;
+        background-color: #FFFFFF;
+        color: #1E1A20;
+        font-family: Poppins;
+        margin-left: 1em;
+        padding: 10px;
+        margin-bottom: 1em;
+
+    }
+
+    .contenido {
+
+        font-family: Poppins;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        background-color: #F1DAFF;
+        width: 60%;
+        height: 80%;
+        margin-left: 500px;
+        margin-right: 400px;
+        margin-top: 30px;
+        border-radius: 20px;
+
+    }
+
+    .items {
+        padding-top: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding-bottom: 20px;
+    }
+
+    .options {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .options button {
         width: 280px;
         height: 40px;
         background-color: #FFFFFF;
@@ -508,15 +642,83 @@
         margin-top: 20px;
     }
 
-    .contenedor{
+    .contenedor {
         display: flex;
         justify-content: center;
         align-items: center;
         flex-direction: row-reverse;
-        
+
         width: 90%;
     }
-    
 
+    .logo1 {
+        margin-bottom: 20px; /* Espacio entre la imagen y el formulario */
+    }
+    
+    .logo1 img {
+        max-width: 100%; /* Asegura que la imagen no exceda el ancho del contenedor */
+        height: auto; /* Mantiene la proporción de la imagen */
+    }
+    
+    .sel_Cat, .res_Cat {
+        width: 60%; /* Asegura que el formulario ocupe todo el ancho del contenedor */
+        text-align: center; /* Centra el contenido del formulario horizontalmente */
+        background-color: #f1daff;
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+        font-family: Poppins;
+        padding: 2%;
+    }
+
+    .sel_Cat > * {
+        margin: 10px auto;
+    }
+
+    .boton_categoria {
+        margin: 10px auto;
+        width: 60%;
+        border: none;
+        border-radius: 30px;
+        background-color: #ffffff;
+        padding: 10px;
+        font-size: 1em;
+    }
+    .title_resCat{
+        color: #AF63EE;
+        margin-bottom: 25%;
+        font-size: 2.5em;
+    }
+
+    .interactuar{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+        margin-top: 5%;
+    }
+
+    .score{
+        background-color: #290C41;
+        color: #FFFFFF;
+        border-radius: 25px;
+        padding: 2%;
+        width: 60%;
+        margin: 0 10%;
+    }
+    .skip{
+        width: 60%;
+        background-color: #CF1673;
+        border-radius: 25px;
+        margin: 0 10%;
+    }
+    .boton_saltar{
+        background-color: #CF1673;
+        border-radius: 25px;
+        padding: 5%;
+        width: 100%;
+        font-size: 1.2em;
+        border: none;
+    }
 
 }
