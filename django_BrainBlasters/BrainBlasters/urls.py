@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from usuarios.views import login, register, exit
-from myapp.views import home_jugador, seleccionarcategoria, respondercategoria
+from myapp.views import home_jugador, seleccionarcategoria, respondercategoria, help
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -12,4 +12,5 @@ urlpatterns = [
     path('logout/', exit, name='exit'),
     path('seleccionarcategoria/', seleccionarcategoria, name='seleccionarcategoria'),
     path('respondercategoria/', respondercategoria, name='respondercategoria'),
+    path('help/', help, name='help'),
 ]

@@ -43,3 +43,6 @@ def respondercategoria(request):
             else:
                 # Manejar el caso donde no hay trivias disponibles
                 return render(request, 'respondercategoria.html', {'mensaje': 'No hay más trivias disponibles en esta categoría.'})
+            
+def help(request):
+    return render(request,"help.html")
