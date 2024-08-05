@@ -8,7 +8,8 @@ def base(request):
 
 @login_required
 def home_jugador(request):
-    return render(request, 'home_jugador.html')
+    categorias = Categoria.objects.all()  # Obteniendo todas las categorías de la base de datos
+    return render(request, 'home_jugador.html', {"categorias": categorias})
 
 def base_SeleccionarCategoria(request):
     categorias = ["Arte","Ciencia","Deportes","Entretenimiento","Geografia","Historia","Cine","Matematica"]

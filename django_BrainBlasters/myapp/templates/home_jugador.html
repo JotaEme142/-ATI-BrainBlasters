@@ -1,9 +1,29 @@
+
 {% extends 'base.html' %}
 
+{% load static %}
 {% block content %}
+<div class="container-home_jugador">
+    <img src='{% static "img/brainby.png" %}' alt="" class="brainby">
 
-<h1 style="color:#FFFFFF; margin-left: 40%;">HOME JUGADOR</h1>
+    <div class="slide">
+        <ul>
+            <li><img src='{% static "img/1.png" %}'></li>
+            <li><img src='{% static "img/2.png" %}'></li>
+            <li><img src='{% static "img/3.png" %}'></li>
+            <li><img src='{% static "img/4.png" %}'></li>
+        </ul>
+<h3 class="text-cat">Elige una categoría para empezar:</h3>
+<form class="cards-container" method="post" action="{% url 'respondercategoria' %}">
+    {% csrf_token %}
+    
+    {% for categoria in categorias %}
+        <button type="submit" class="card" value="{{ categoria.id }}" name="categoria_id">{{ categoria.nombre }}</button>
+    {% endfor %}
+</form>
 
-<h4 style="color:#FFFFFF; margin-left: 40%;">{{user.username | upper }}</h4>
+    </div>
+  
+</div>
 
 {% endblock %}

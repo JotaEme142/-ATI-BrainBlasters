@@ -4,7 +4,11 @@
     margin: 0;
     padding: 0;
 }
-
+.text-cat{
+    color: #FFFFFF;
+    font-family: Poppins;
+    margin-bottom: 1em;
+}
 /*******************************************************************************************************/
 /*******************************************************************************************************/
 /*******************************************************************************************************/
@@ -55,6 +59,7 @@
     }
 
     .logo img {
+        display: none;
         width: 100px;
         height: 100px;
 
@@ -213,16 +218,58 @@
 
     }
 
-    .container-home_jugador {
-
+    .container-home_jugador{
+    
         width: 80%;
         height: 90%;
         margin: auto;
-        background-color: #ffffff;
+        display: flex;
+        margin-top: 0;
+        align-items: center;
         padding: 20px;
-
+        flex-direction: column;
+        
     }
 
+    .brainby{
+        width: 300px;
+        height: 300px;
+    }
+
+    .slide ul{
+        display: none;
+        
+    }
+
+    .cards-container{
+   
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    
+    }
+
+    .card{
+        background-color: #FFFFFF;
+        width: 300px;
+        height: 80px;
+        border-radius: 20px;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Poppins;
+        
+    }
+    
+    
+    .card h3{
+        font-family: Poppins;
+        font-size: 1em;
+        color: #1E1A20;
+    }
 }
 
 /*******************************************************************************************************/
@@ -422,14 +469,56 @@
 
     }
 
-    .container-home_jugador {
-
+    .container-home_jugador{
+    
         width: 80%;
         height: 90%;
         margin: auto;
-        background-color: #ffffff;
+        display: flex;
+        margin-top: 0;
+        align-items: center;
         padding: 20px;
+        flex-direction: column;
+        
+    }
 
+    .brainby{
+        width: 300px;
+        height: 300px;
+    }
+    
+    .slide ul{
+        display: none;
+        
+    }
+    .cards-container{
+   
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    
+    }
+
+    .card{
+        background-color: #FFFFFF;
+        width: 300px;
+        height: 80px;
+        border-radius: 20px;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: Poppins;
+        
+    }
+    
+    
+    .card h3{
+        font-family: Poppins;
+        font-size: 1em;
+        color: #1E1A20;
     }
 
 }
@@ -474,7 +563,7 @@
     .container-seleccionar_categoria, .container-responder_categoria {
         width: 70%;
         margin: auto;
-        background-color: #1E1A20;
+       
         padding: 20px;
         display: flex;
         flex-direction: column;
@@ -594,13 +683,13 @@
         flex-shrink: 0;
         width: 97%;
         background-color: #FFFFFF;
-        color: #1E1A20;
+        color: #1E1A20 ;
         font-family: Poppins;
         margin-left: 1em;
         padding: 10px;
         margin-bottom: 1em;
-
-    }
+       margin-top: 5em;
+      }
 
     .contenido {
 
@@ -683,11 +772,18 @@
         background-color: #ffffff;
         padding: 10px;
         font-size: 1em;
+        font-family: Poppins;
     }
     .title_resCat{
         color: #AF63EE;
         margin-bottom: 25%;
         font-size: 2.5em;
+        font-family: Poppins;
+    }
+    .title_selCat{
+        color: #AF63EE;
+        
+       
     }
 
     .interactuar{
@@ -721,4 +817,102 @@
         border: none;
     }
 
+    .container-home_jugador{
+        
+        width: 80%;
+        height: 100vh;
+        margin: auto;
+        
+        padding: 20px;
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        
+       
+    }
+
+    .brainby{
+        display: none;
+    }
+
+    .slide{
+        width: 100vw;
+        max-width: 1110px;
+        height: 720px;
+        
+        overflow: hidden;
+
+    
+    }
+    .slide ul{
+        list-style: none;
+        display: flex;
+        padding: 0;
+        width: 400%;
+        animation: slide 20s infinite cubic-bezier(0.55, 0.48, 0.37, 0.92);
+        
+    }
+
+    .slide image{
+        width: 100%;
+        height: auto;
+    }
+
+    .cards-container{
+        
+        height: 110px;
+        display: flex;
+        flex-direction: row;
+        font-family: Poppins;
+        font-size: 14px;
+    }
+    
+    .card{
+        background-color: #FFFFFF;
+        width: 140px;
+        height: 80px;
+        border-radius: 20px;
+        margin-right: 10px;
+        display: flex;
+        font-family: Poppins;
+        justify-content: center;
+        align-items: center;
+        overflow-x: auto;
+    }
+
+    .card::-webkit-scrollbar{
+        width: 0;
+    }
+    .card h3{
+        font-family: Poppins;
+        font-size: 1em;
+        color: #1E1A20;
+    }
+
+    .card:hover{
+        background-color: blueviolet;
+        color: #1E1A20;
+    }
+
+    .boton_categoria:hover{
+        background-color: blueviolet;
+        color: #1E1A20;
+    }
+
+}
+
+ 
+@keyframes slide {
+    0%{ margin-left: 0%;}
+    20%{ margin-left: 0%;}
+
+    25%{ margin-left: -100%;}
+    45%{ margin-left: -100%;}
+
+    50%{ margin-left: -200%;}
+    70%{ margin-left: -200%;}
+
+    75%{ margin-left: -300%;}
+    100%{ margin-left: -300%;}
 }
