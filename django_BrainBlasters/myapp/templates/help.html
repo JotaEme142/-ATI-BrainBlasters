@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+<div class="container-help">
+    <h1>Reglas del juego</h1>
+    <div class="reglas">
+    <h2>Registro e Inicio de Sesión</h2>
+    <p><b>Registro:</b> Todos los usuarios deben registrarse en la aplicación para poder participar en las trivias. Durante el registro, se les pedirá que definan un alias. Este alias se mostrará cada vez que el usuario participe en un Ranking. <br>
+        <br>
+    <b> Inicio de Sesión:</b> Una vez registrado, el usuario debe iniciar sesión para acceder a las trivias, ver su perfil, y consultar su posición en el ranking.
+    </p>
+    <h2>Elección de Categorías</h2>
+    <p><b>Selección de Trivia: </b>Los usuarios pueden escoger la categoría de trivia que desean jugar. Las categorías disponibles incluyen entretenimiento, deporte, lenguajes de programación, efemérides, marcas de logotipos, canciones, entre otras.</p>
+    
+    <h2>Responder Trivias</h2>
+    <ul>
+        <li><b>Formato de la Trivia: </b>Cada trivia consiste en una pregunta con cuatro posibles respuestas.</li>
+        <br>
+        <li>Solo una de ellas es correcta. Algunas trivias pueden incluir imágenes junto a la pregunta.</li>
+        <br>
+        <li><b> Puntaje: </b>Se otorgan 100 puntos por cada respuesta correcta. </li>
+        <br>
+        <li>Si el usuario responde correctamente dentro de un período de tiempo establecido, recibe un bono adicional de 200 puntos.</li>
+        
+    </ul>
+
+    <h2>Rankings y Premios</h2>
+    <ul>
+        <li><b>Ranking: </b>Los puntos acumulados por cada usuario se reflejan en un ranking global de jugadores.</li>
+        <br>
+        <li><b>Premios por Ranking: </b>Los tres jugadores con más puntos al momento de cada sorteo ganan premios especiales. Los administradores determinan las fechas de estos sorteos.</li>
+        <br>
+        <li><b>Premios Instantáneos: </b>A lo largo del juego, se harán preguntas al azar que otorgan premios instantáneos. Si un usuario responde correctamente una de estas preguntas, recibirá un premio de inmediato. No hay un aviso previo para estas preguntas, por lo que mientras más se juegue, mayor será la oportunidad de ganar.</li>
+    </ul>
+
+    
+ 
+
+</div>
+
+
+
+</div>
+
+
+
+{% endblock %}
+
