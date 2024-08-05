@@ -1,7 +1,8 @@
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth.decorators import login_required
 from myapp.models import Categoria, Trivia
-
+from .models import Jugador
+from .forms import EditProfileForm
 
 def base(request):
     return render(request,"base.html")
@@ -43,6 +44,35 @@ def respondercategoria(request):
             else:
                 # Manejar el caso donde no hay trivias disponibles
                 return render(request, 'respondercategoria.html', {'mensaje': 'No hay más trivias disponibles en esta categoría.'})
-            
+          
+
+def perfil_jugador(request):
+
+    user_id = request.user.id
+
+    try:
+        jugador = Jugador.objects.get(usuario_id=user_id)
+        puntaje_acumulado = jugador.puntaje_acumulado
+    except Jugador.DoesNotExist:
+        puntaje_acumulado = 0  # Si no hay registro para este usuario, establecer el puntaje en 0
+
+    return render(request, "perfil_jugador.html", {'puntaje_acumulado': puntaje_acumulado})
+
+def editar_perfil(request):
+    if request.method == 'POST':
+        form = EditProfileForm(request.POST, instance=request.user)
+        if form.is_valid():
+            form.save()
+            return redirect('perfil_jugador')
+    else:
+        form = EditProfileForm(instance=request.user)
+    
+
+    return render(request, 'editar_perfil.html', {'form': form})
+
+
+
+
+
 def help(request):
     return render(request,"help.html")

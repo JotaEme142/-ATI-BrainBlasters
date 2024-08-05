@@ -304,6 +304,118 @@
     margin-left: 20px;
     }
 
+    .Perfil{
+        margin-top: 50px;
+        display: flex;
+        flex-direction: row;
+        position: absolute;
+        
+    }
+
+    .p1{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .p1 .alias{
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: #ae63ee;
+        font-size: 36px;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+    }
+    .p1 h2{
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: #af63ee80;
+        font-size: 24px;
+        letter-spacing: 0;
+        line-height: normal;
+    }
+
+    .userCircle{
+        width: 90px;
+        height: 90px;
+    }
+
+    .p1 .correo{
+        color: #ae63ee;
+        font-size: 24px;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+        margin-bottom: 20px;
+    }
+
+    .p2 div{
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: #ae63ee;
+        font-size: 26px;
+        text-align: center;
+        letter-spacing: 0;
+        line-height: normal;
+    }
+
+    .p2 .stats{
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: white;
+        font-size: 15px;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+    }
+
+    .editButton{
+        background-color: #CF1673;
+        color: #000;
+        border-radius: 50%;
+        border-color: #CF1673;
+        margin-top: 10px;
+        height: 20px;
+        width: 90px;
+    }
+
+    .editar{
+        justify-content: center;
+        margin-top: 50px;
+        display: grid;
+        justify-items: center;
+        position: absolute;
+        left: 25%;
+        gap: 10px;
+    
+    }
+
+    .editar h2{
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: #ae63ee;
+        font-size: 36px;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+    }
+
+    .editar p{
+        color: #ae63ee;
+        font-size: 24px;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+    }
+
+    .editar button{
+        background-color: #76D7C4;
+        border-color: #76D7C4;
+        border-radius: 25%;
+        margin-top: 20px;
+        position: relative;
+        left: 60px;
+    }
     
 }
 
@@ -589,6 +701,121 @@
     margin-left: 20px;
   }
 
+  .Perfil{
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        left: 200px;
+    }
+
+    .p1{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .p1 .alias{
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: #ae63ee;
+        font-size: 36px;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+    }
+    .p1 h2{
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: #af63ee80;
+        font-size: 24px;
+        letter-spacing: 0;
+        line-height: normal;
+    }
+
+    .userCircle{
+        width: 90px;
+        height: 90px;
+    }
+
+    .p1 .correo{
+        color: #ae63ee;
+        font-size: 24px;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+        margin-bottom: 20px;
+    }
+
+    .p2 div{
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: #ae63ee;
+        font-size: 36px;
+        text-align: center;
+        letter-spacing: 0;
+        line-height: normal;
+    }
+
+    .p2 .stats{
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: white;
+        font-size: 20px;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+    }
+    .p2{
+        margin-top: 100px;
+    }
+    .editButton{
+        background-color: #CF1673;
+        color: #000;
+        border-radius: 50%;
+        border-color: #CF1673;
+        margin-top: 10px;
+        height: 25px;
+        width: 100px;
+    }
+    
+    .editar{
+        justify-content: center;
+        margin-top: 50px;
+        display: grid;
+        justify-items: center;
+        position: absolute;
+        left: 30%;
+        gap: 10px;
+    
+    }
+
+    .editar h2{
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: #ae63ee;
+        font-size: 36px;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+    }
+
+    .editar p{
+        color: #ae63ee;
+        font-size: 24px;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+    }
+
+    .editar button{
+        background-color: #76D7C4;
+        border-color: #76D7C4;
+        border-radius: 25%;
+        margin-top: 20px;
+        position: relative;
+        left: 60px;
+    }
+
 }
 
 /*******************************************************************************************************/
@@ -619,7 +846,7 @@
         width: 98%;
         height: 100vh;
         display: flex;
-        justify-content: space-between;
+        justify-content: start;
         align-items: center;
         flex-direction: row-reverse;
         margin-top: 0;
@@ -1000,6 +1227,122 @@
   .reglas ul{
     margin-left: 20px;
   }
+  
+  .Perfil{
+        align-self: normal;
+        margin-left: 200px;
+        margin-top: 50px;
+        display: grid;
+        grid-template-columns: 1fr 1fr ;
+        
+    }
+
+    .p1{
+
+        display: flex;
+        flex-direction: column;
+    }
+
+    .p1 .alias{
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: #ae63ee;
+        font-size: 36px;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+    }
+    .p1 h2{
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: #af63ee80;
+        font-size: 24px;
+        letter-spacing: 0;
+        line-height: normal;
+    }
+
+    .userCircle{
+        width: 256px;
+        height: 247px;
+    }
+
+    .p1 .correo{
+        color: #ae63ee;
+        font-size: 24px;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+    }
+
+    .p2 div{
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: #ae63ee;
+        font-size: 36px;
+        text-align: center;
+        letter-spacing: 0;
+        line-height: normal;
+    }
+
+    .p2 .stats{
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: white;
+        font-size: 20px;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+    }
+
+    .editButton{
+        background-color: #CF1673;
+        color: #000;
+        border-radius: 50%;
+        border-color: #CF1673;
+        margin-top: 10px;
+        height: 25px;
+        width: 100px;
+    }
+    .editar{
+        align-self: start;
+        margin-left: 200px;
+        justify-content: center;
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-items: center;
+
+        
+        gap: 10px;
+    
+    }
+
+    .editar h2{
+        font-family: "Inter-Regular", Helvetica;
+        font-weight: 400;
+        color: #ae63ee;
+        font-size: 36px;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+    }
+
+    .editar p{
+        color: #ae63ee;
+        font-size: 24px;
+        letter-spacing: 0;
+        line-height: normal;
+        white-space: nowrap;
+    }
+
+    .editar button{
+        background-color: #76D7C4;
+        border-color: #76D7C4;
+        border-radius: 25%;
+        margin-top: 20px;
+        position: relative;
+        left: 60px;
+    }
 
 }
 
