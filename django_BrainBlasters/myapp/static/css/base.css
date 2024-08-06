@@ -309,7 +309,7 @@
         display: flex;
         flex-direction: row;
         position: absolute;
-        
+        font-family: Poppins;
     }
 
     .p1{
@@ -387,6 +387,7 @@
         position: absolute;
         left: 25%;
         gap: 10px;
+        font-family: Poppins;
     
     }
 
@@ -707,6 +708,7 @@
         flex-direction: column;
         position: absolute;
         left: 200px;
+        font-family: Poppins;
     }
 
     .p1{
@@ -786,6 +788,7 @@
         position: absolute;
         left: 30%;
         gap: 10px;
+        font-family: Poppins;
     
     }
 
@@ -1234,6 +1237,7 @@
         margin-top: 50px;
         display: grid;
         grid-template-columns: 1fr 1fr ;
+        font-family: Poppins;
         
     }
 
@@ -1297,11 +1301,12 @@
     .editButton{
         background-color: #CF1673;
         color: #000;
-        border-radius: 50%;
+        border-radius: 20px;
         border-color: #CF1673;
         margin-top: 10px;
-        height: 25px;
+        
         width: 100px;
+        padding: 10px;
     }
     .editar{
         align-self: start;
@@ -1311,6 +1316,7 @@
         display: flex;
         flex-direction: column;
         justify-items: center;
+        font-family: Poppins;
 
         
         gap: 10px;
@@ -1338,13 +1344,28 @@
     .editar button{
         background-color: #76D7C4;
         border-color: #76D7C4;
-        border-radius: 25%;
+        border-radius: 20px;
+        padding: 10px;
         margin-top: 20px;
         position: relative;
         left: 60px;
+        
     }
-
-}
+    .timer {
+        width: 100%;
+        background-color: #f3f3f3;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        overflow: hidden;
+        margin-top: 10px;
+    }
+    .timer-bar {
+        height: 15px;
+        background-color: #ae63ee;
+        width: 100%;
+        transition: width 0.1s;
+    }
+ }
 
  
 @keyframes slide {

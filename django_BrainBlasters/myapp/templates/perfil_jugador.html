@@ -3,7 +3,7 @@
 {% block content %}
 <content class="Perfil">
 	<div class="p1">
-		<img class="userCircle" src="../static/icons/userCircle.png">
+		<a href="editar_perfil.html"><img class="userCircle" src="../static/icons/userCircle.png"></a>
 		<p class="alias" >@{{ request.user.alias }}</p>
 		<h2>{{ request.user.nombre }}</h2>
 		<div class="correo"><img src="../static/icons/mail.svg" style="width: 21px; height: 17px;">{{ request.user.email }}</div>

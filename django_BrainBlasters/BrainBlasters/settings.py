@@ -128,7 +128,7 @@ STATICFILES_DIR = (os.path.join(BASE_DIR,'BrainBlasters/myapp/static'),)
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # settings.py
-LOGIN_REDIRECT_URL = 'home_usuario'
+LOGIN_REDIRECT_URL = 'home_jugador'
 LOGOUT_REDIRECT_URL = 'login'
 
 AUTH_USER_MODEL = 'myapp.Usuario'

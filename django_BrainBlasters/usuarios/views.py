@@ -18,7 +18,7 @@ def login(request):
             user = authenticate(request, email=email, password=password)
             if user is not None:
                 auth_login(request, user)
-                return redirect('home_usuario')
+                return redirect('home_jugador')
             else:   
                 messages.error(request, 'Usuario o contraseña inválidos')          
     return render(request, "home_jugador.html")
@@ -44,8 +44,6 @@ def register(request):
                 pass
     return render(request, 'registration/login.html')
 
-def home_usuario(request):
-    return render(request, 'home_jugador.html')
 
 def exit(request):
     logout(request)
