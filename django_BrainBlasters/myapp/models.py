@@ -68,6 +68,7 @@ class Jugador(models.Model):
     categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, null=True)
     puntaje_acumulado = models.IntegerField(default=0)
 
+
 class Trivia(models.Model):
      categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)#Mosca Aqui
      tipo = models.BooleanField(default=False)
