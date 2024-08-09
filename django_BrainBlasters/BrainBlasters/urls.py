@@ -25,5 +25,5 @@ urlpatterns = [
     path('home_usuario/editar_perfil.html', editar_perfil, name='editar_perfil'),
     path('editar_perfil.html', editar_perfil, name='editar_perfil'),
     path('help/', help, name='help'),
-     path('procesar-respuesta/', procesar_respuesta, name='procesar_respuesta'),
+    path('procesar-respuesta/', procesar_respuesta, name='procesar_respuesta'),
 ]

@@ -72,7 +72,16 @@ def editar_perfil(request):
     return render(request, 'editar_perfil.html', {'form': form})
 
 
-
+def actualizar_puntaje(usuario, categoria, puntos):
+    resultados=Jugador.objects.filter(usuario=usuario, categoria=categoria)
+    if not resultados:
+        jugador = Jugador(usuario=usuario, categoria=categoria, puntaje_acumulado=puntos)
+        jugador.save()
+    else:
+        jugador_existente = resultados.first()
+        jugador_existente.puntaje_acumulado += puntos
+        jugador_existente.save() 
+    
 
 
 def help(request):
@@ -84,55 +93,76 @@ def procesar_respuesta(request):
         categoria_id = request.POST.get('categoria_id')
         trivia_id = request.POST.get('trivia_id')
         respuesta_seleccionada = int(request.POST.get('respuesta'))
-        
+            
         print(f"categoria_id: {categoria_id}")
         print(f"trivia_id: {trivia_id}")
         print(f"respuesta_seleccionada: {respuesta_seleccionada}")
 
         # Obtener la trivia correspondiente
         trivia = get_object_or_404(Trivia, id=trivia_id)
-        jugador = get_object_or_404(Jugador, usuario=request.user)
+        jugador = get_object_or_404(Jugador, usuario=request.user, categoria=categoria_id)
         categoria = get_object_or_404(Categoria, id=categoria_id)
-        
-        
-        
-        # Verificar si la respuesta seleccionada es correcta
-        if respuesta_seleccionada == trivia.respuesta:
-            # Actualizar el puntaje del jugador
-            jugador.puntaje_acumulado += 100
-            jugador.categoria = categoria
-            jugador.save()
             
-            # Mostrar mensaje de éxito
-            mensaje_exito = "¡FELICIDADES, Respuesta correcta! Has ganado 100 puntos."
-            messages.success(request, mensaje_exito)
-            print(mensaje_exito)
+        if respuesta_seleccionada != 5:    
             
-            # Obtener la categoría de la trivia
-            categoria = trivia.categoria
-            print(f"Categoria: {categoria.nombre}")
+            # Verificar si la respuesta seleccionada es correcta
+            if respuesta_seleccionada == trivia.respuesta:
+                # Actualizar el puntaje del jugador
+                actualizar_puntaje(request.user, categoria, 100)
+                
+                # Mostrar mensaje de éxito
+                mensaje_exito = "¡FELICIDADES, Respuesta correcta! Has ganado 100 puntos."
+                messages.success(request, mensaje_exito)
+                print(mensaje_exito)
+                
+                # Obtener la categoría de la trivia
+                categoria = trivia.categoria
+                print(f"Categoria: {categoria.nombre}")
 
-            # Redirigir a una nueva trivia de la misma categoría
-            # Obtener los IDs de las trivias ya enviadas desde la sesión
-            trivias_enviadas = request.session.get('trivias_enviadas', [])
-            print(f"Trivias enviadas: {trivias_enviadas}")
+                # Redirigir a una nueva trivia de la misma categoría
+                # Obtener los IDs de las trivias ya enviadas desde la sesión
+                trivias_enviadas = request.session.get('trivias_enviadas', [])
+                print(f"Trivias enviadas: {trivias_enviadas}")
 
-            # Obtener las trivias asociadas a la categoría, excluyendo las ya enviadas
-            nueva_trivia = Trivia.objects.filter(categoria=categoria).exclude(id__in=trivias_enviadas).first()
-            print(f"Nueva trivia: {nueva_trivia}")
+                # Obtener las trivias asociadas a la categoría, excluyendo las ya enviadas
+                nueva_trivia = Trivia.objects.filter(categoria=categoria).exclude(id__in=trivias_enviadas).first()
+                print(f"Nueva trivia: {nueva_trivia}")
 
-            if nueva_trivia:
-                trivias_enviadas.append(nueva_trivia.id)
-                request.session['trivias_enviadas'] = trivias_enviadas
-                return render(request, 'respondercategoria.html', {'trivia': nueva_trivia, 'categoria_nombre': categoria.nombre,'categoria_id': categoria.id, 'puntaje_acumulado': jugador.puntaje_acumulado})
+                if nueva_trivia:
+                    trivias_enviadas.append(nueva_trivia.id)
+                    request.session['trivias_enviadas'] = trivias_enviadas
+                    return render(request, 'respondercategoria.html', {'trivia': nueva_trivia, 'categoria_nombre': categoria.nombre,'categoria_id': categoria.id, 'puntaje_acumulado': jugador.puntaje_acumulado})
+                else:
+                    mensaje_info = 'No hay más trivias disponibles en esta categoría.'
+                    messages.info(request, mensaje_info)
+                    print(mensaje_info)
+                    return redirect('home_jugador')  
             else:
-                mensaje_info = 'No hay más trivias disponibles en esta categoría.'
-                messages.info(request, mensaje_info)
-                print(mensaje_info)
-                return redirect('home_jugador')  
+                # Mostrar mensaje de error si la respuesta es incorrecta
+                mensaje_error = f"Respuesta incorrecta. La respuesta correcta era {trivia.respuesta}"
+                messages.error(request, mensaje_error)
+                print(mensaje_error)
+                return render(request, 'respondercategoria.html', {'mensaje': mensaje_error})
         else:
-            # Mostrar mensaje de error si la respuesta es incorrecta
-            mensaje_error = f"Respuesta incorrecta. La respuesta correcta era {trivia.respuesta}"
-            messages.error(request, mensaje_error)
-            print(mensaje_error)
-            return render(request, 'respondercategoria.html', {'mensaje': mensaje_error})
+                # Obtener la categoría de la trivia
+                categoria = trivia.categoria
+                print(f"Categoria: {categoria.nombre}")
+
+                # Redirigir a una nueva trivia de la misma categoría
+                # Obtener los IDs de las trivias ya enviadas desde la sesión
+                trivias_enviadas = request.session.get('trivias_enviadas', [])
+                print(f"Trivias enviadas: {trivias_enviadas}")
+
+                # Obtener las trivias asociadas a la categoría, excluyendo las ya enviadas
+                nueva_trivia = Trivia.objects.filter(categoria=categoria).exclude(id__in=trivias_enviadas).first()
+                print(f"Nueva trivia: {nueva_trivia}")
+
+                if nueva_trivia:
+                    trivias_enviadas.append(nueva_trivia.id)
+                    request.session['trivias_enviadas'] = trivias_enviadas
+                    return render(request, 'respondercategoria.html', {'trivia': nueva_trivia, 'categoria_nombre': categoria.nombre,'categoria_id': categoria.id, 'puntaje_acumulado': jugador.puntaje_acumulado})
+                else:
+                    mensaje_info = 'No hay más trivias disponibles en esta categoría.'
+                    messages.info(request, mensaje_info)
+                    print(mensaje_info)
+                    return redirect('home_jugador') 
