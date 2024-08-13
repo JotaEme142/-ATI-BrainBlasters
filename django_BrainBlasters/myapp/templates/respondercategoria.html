@@ -6,33 +6,37 @@
 <div class="container-responder_categoria">
     <div class="logo">
         <h2 class="title_resCat">{{ categoria_nombre }}</h2>
-        
-        
-        
+
+
+
     </div>
     {% if messages %}
     <div class="message-container-answer" id="contenedorDeMensajes">
-    <ul id="message-container-answer">
-        {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+        <ul id="message-container-answer">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>
                 {{ message }}
-            </li>
-        {% endfor %}
-    </ul>
-  </div>
-  {% endif %}
+                </li>
+                {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
     <form id="responder-form" class="res_Cat" method="post" action="{% url 'procesar_respuesta'%}">
         <input type="hidden" name="categoria_id" value="{{ categoria_id }}">
         <input type="hidden" name="trivia_id" value="{{ trivia.id }}">
         {% csrf_token %}
         <h2 class="title_preg">{{ trivia.pregunta }}</h2>
-        
-       
-        {% if triva.tipo %}
-        <button type="submit" class="boton_categoria" name="respuesta" value="1">{{ trivia.opcion_img1 }}</button>
-        <button type="submit" class="boton_categoria" name="respuesta" value="2">{{ trivia.opcion_img2 }}</button>
-        <button type="submit" class="boton_categoria" name="respuesta" value="3">{{ trivia.opcion_img3 }}</button>
-        <button type="submit" class="boton_categoria" name="respuesta" value="4">{{ trivia.opcion_img4 }}</button>
+
+
+        {% if trivia.tipo == 2 %}
+        <button type="submit" class="boton_categoria" name="respuesta" value="1"><img src="{{ trivia.opcion_img1.url }}"
+                alt="{{ trivia.descripcion_img1 }}"></button>
+        <button type="submit" class="boton_categoria" name="respuesta" value="2"><img src="{{ trivia.opcion_img2.url }}"
+                alt="{{ trivia.descripcion_img2 }}"></button>
+        <button type="submit" class="boton_categoria" name="respuesta" value="3"><img src="{{ trivia.opcion_img3.url }}"
+                alt="{{ trivia.descripcion_img3 }}"></button>
+        <button type="submit" class="boton_categoria" name="respuesta" value="4"><img src="{{ trivia.opcion_img4.url }}"
+                alt="{{ trivia.descripcion_img4 }}"></button>
         {% else %}
         <button type="submit" class="boton_categoria" name="respuesta" value="1">{{ trivia.opcion_txt1 }}</button>
         <button type="submit" class="boton_categoria" name="respuesta" value="2">{{ trivia.opcion_txt2 }}</button>
@@ -41,6 +45,7 @@
         {% endif %}
         <div class="timer">
             <div class="timer-bar" id="timer-bar"></div>
+            <p><span id="countdown-display">15</span> </p>
         </div>
         <div class="interactuar">
             <div class="score">
@@ -55,25 +60,51 @@
 </div>
 <script src='{% static "./js/respondercategoria.js" %}'></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
+        let countdown = 15.00;
         const messages = document.querySelectorAll('#message-container-answer li');
+        const countdownDisplay = document.getElementById('countdown-display');
+        const timerBar = document.getElementById('timer-bar');
         const form = document.getElementById('responder-form');
-        
-        startCountdown(15);//tiempo para responder
-        
+        const buttons = document.getElementsByName('respuesta'); // Selecciona todos los botones con name="respuesta"
+        let buttonClicked = false;
+        const interval = setInterval(function () {
+                countdown -= 0.01;
+                countdownDisplay.textContent = countdown.toFixed(0);
+                timerBar.style.width = (countdown / 15) * 100 + '%';
+
+                if (countdown <= 0) {
+                    clearInterval(interval);
+                    if (!buttonClicked) {
+                        countdownDisplay.textContent = '0';
+                    }
+                }
+            }, 1);
+
+        buttons.forEach(button => {
+            button.addEventListener('click', function () {
+                buttonClicked = true;
+                clearInterval(interval);
+                const tiempoRestante = countdown.toFixed(2);
+                const inputTiempo = document.createElement('input');
+                inputTiempo.type = 'hidden';
+                inputTiempo.name = 'tiempo_restante';
+                inputTiempo.value = tiempoRestante;
+                form.appendChild(inputTiempo);
+            });
+        });
         function redirectAfterDelay() {
             setTimeout(() => {
                 window.location.href = "{% url 'home_jugador' %}"; // Redirigir a la página 'home_jugador'
-            }, 60000); 
+            }, 60000);
         }
-    
         messages.forEach(message => {
             if (message.classList.contains('error')) {
                 //  mensajes de error
                 form.style.display = 'none';
-                message.style.display='block'
+                message.style.display = 'block'
                 const errorIcon = document.createElement('img');
-                errorIcon.src = "{% static 'img/brainby_triste.png' %}"; 
+                errorIcon.src = "{% static 'img/brainby_triste.png' %}";
                 errorIcon.alt = "Success Icon";
                 errorIcon.style.width = '300px';
                 errorIcon.style.height = 'auto';
@@ -83,42 +114,47 @@
                 message.insertBefore(errorIcon, message.firstChild);
                 message.style.color = 'red';
                 setTimeout(() => {
-                message.style.display = 'none';
-            window.location.href = "{% url 'home_jugador' %}";
-        }, 6000);
-        
-        
+                    message.style.display = 'none';
+                    window.location.href = "{% url 'home_jugador' %}";
+                }, 6000);
+
+
             } else if (message.classList.contains('info')) {
                 //mesaje de informacion
                 form.style.display = 'none';
-        
-                message.style.color ='yellow'
-                
+
+                message.style.color = 'yellow'
+
                 redirectAfterDelay()
-                
+
             } else if (message.classList.contains('success')) {
                 // mensajes de éxito
                 form.style.display = 'none';
-                
-                message.style.display= 'block';
+
+                message.style.display = 'block';
                 const successIcon = document.createElement('img');
-                successIcon.src = "{% static 'img/brainby.png' %}"; 
+                successIcon.src = "{% static 'img/brainby.png' %}";
                 successIcon.alt = "Success Icon";
-                successIcon.style.width = '300px'; 
+                successIcon.style.width = '300px';
                 successIcon.style.height = 'auto';
                 successIcon.style.display = 'block';
                 successIcon.style.margin = '0 auto';
 
                 message.insertBefore(successIcon, message.firstChild);
-    
-               
+
+
                 setTimeout(() => {
                     message.style.display = 'none';
                     form.style.display = 'block';
                 }, 5000); // Ocultar 
             }
         });
+        form.addEventListener('submit', function () {
+            clearInterval(interval);
+        });
     });
-    
-    </script>
+</script>
+
+
+
 {% endblock %}

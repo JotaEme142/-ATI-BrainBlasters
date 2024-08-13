@@ -39,9 +39,27 @@ def respondercategoria(request):
                 trivia_seleccionada = trivia.first()
                 trivias_enviadas.append(trivia_seleccionada.id)
                 request.session['trivias_enviadas'] = trivias_enviadas
-                
+
+                # Obtener el usuario que ha iniciado sesión
+                usuario = request.user 
+
+                # Obtener el puntaje acumulado del jugador en la categoría
+                jugador=Jugador.objects.filter(usuario=usuario, categoria=categoria)
+                if jugador.exists():
+                    jugador = jugador.first()
+                    puntaje_acumulado = jugador.puntaje_acumulado
+                else:
+                    jugador = Jugador(usuario=usuario, categoria=categoria)
+                    jugador.save()
+                    puntaje_acumulado = 0
                 # Pasar los datos a la plantilla
-                return render(request, 'respondercategoria.html', {'trivia': trivia_seleccionada, 'categoria_nombre': categoria.nombre,'categoria_id': categoria.id})
+                return render(request, 'respondercategoria.html', {
+                    'trivia': trivia_seleccionada, 
+                    'categoria_nombre': categoria.nombre,
+                    'categoria_id': categoria.id,
+                    'usuario': usuario,
+                    'puntaje_acumulado': puntaje_acumulado
+                })
             else:
                 # Manejar el caso donde no hay trivias disponibles
                 return render(request, 'respondercategoria.html', {'mensaje': 'No hay más trivias disponibles en esta categoría.'})
@@ -93,10 +111,12 @@ def procesar_respuesta(request):
         categoria_id = request.POST.get('categoria_id')
         trivia_id = request.POST.get('trivia_id')
         respuesta_seleccionada = int(request.POST.get('respuesta'))
+        tiempo_restante = float(request.POST.get('tiempo_restante'))
             
         print(f"categoria_id: {categoria_id}")
         print(f"trivia_id: {trivia_id}")
         print(f"respuesta_seleccionada: {respuesta_seleccionada}")
+        print(f"tiempo_restante: {tiempo_restante}")
 
         # Obtener la trivia correspondiente
         trivia = get_object_or_404(Trivia, id=trivia_id)

@@ -71,16 +71,20 @@ class Jugador(models.Model):
 
 class Trivia(models.Model):
      categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE)#Mosca Aqui
-     tipo = models.BooleanField(default=False)
+     tipo = models.IntegerField(default=0)
      pregunta = models.CharField(max_length=100, null=True)
      opcion_txt1 = models.CharField(max_length=100, null=True)
      opcion_txt2 = models.CharField(max_length=100, null=True)
      opcion_txt3 = models.CharField(max_length=100, null=True)
      opcion_txt4 = models.CharField(max_length=100, null=True)
-     opcion_img1 = models.ImageField(null=True)
-     opcion_img2 = models.ImageField(null=True)
-     opcion_img3 = models.ImageField(null=True)
-     opcion_img4 = models.ImageField(null=True)
+     opcion_img1 = models.ImageField(upload_to='img/', null=True, blank=True)
+     opcion_img2 = models.ImageField(upload_to='img/', null=True, blank=True)
+     opcion_img3 = models.ImageField(upload_to='img/', null=True, blank=True)
+     opcion_img4 = models.ImageField(upload_to='img/', null=True, blank=True)
+     descripcion_img1 = models.CharField(max_length=255, null=True, blank=True)
+     descripcion_img2 = models.CharField(max_length=255, null=True, blank=True)
+     descripcion_img3 = models.CharField(max_length=255, null=True, blank=True)
+     descripcion_img4 = models.CharField(max_length=255, null=True, blank=True)
      respuesta = models.IntegerField(default=0)
 
 '''

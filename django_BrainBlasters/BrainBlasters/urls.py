@@ -3,6 +3,8 @@ from django.urls import path, include
 from usuarios.views import login, register, exit
 from myapp.views import home_jugador, seleccionarcategoria, respondercategoria, perfil_jugador, procesar_respuesta, editar_perfil, help
 from django.shortcuts import redirect
+from django.conf import settings
+from django.conf.urls.static import static
 
 def home_or_login(request):
     if request.user.is_authenticated:
@@ -26,4 +28,5 @@ urlpatterns = [
     path('editar_perfil.html', editar_perfil, name='editar_perfil'),
     path('help/', help, name='help'),
     path('procesar-respuesta/', procesar_respuesta, name='procesar_respuesta'),
-]
+] 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
