@@ -1,7 +1,5 @@
 {% extends 'base.html' %}
 {% load static %}
-{% load i18n %}
-{% load static %}
 {% block content %}
 
 
@@ -40,10 +38,10 @@
         <button type="submit" class="boton_categoria" name="respuesta" value="4"><img src="{{ trivia.opcion_img4.url }}"
                 alt="{{ trivia.descripcion_img4 }}"></button>
         {% else %}
-        <button type="submit" class="boton_categoria" name="respuesta" value="1">{{ trivia.opcion_txt1 }}</button>
-        <button type="submit" class="boton_categoria" name="respuesta" value="2">{{ trivia.opcion_txt2 }}</button>
-        <button type="submit" class="boton_categoria" name="respuesta" value="3">{{ trivia.opcion_txt3 }}</button>
-        <button type="submit" class="boton_categoria" name="respuesta" value="4">{{ trivia.opcion_txt4 }}</button>
+        <button type="submit" class="boton_categoria" name="respuesta" value="1" id="boton1">{{ trivia.opcion_txt1 }}</button>
+        <button type="submit" class="boton_categoria" name="respuesta" value="2" id="boton2">{{ trivia.opcion_txt2 }}</button>
+        <button type="submit" class="boton_categoria" name="respuesta" value="3" id="boton3">{{ trivia.opcion_txt3 }}</button>
+        <button type="submit" class="boton_categoria" name="respuesta" value="4" id="boton4">{{ trivia.opcion_txt4 }}</button>
         {% endif %}
         <div class="timer">
             <div class="timer-bar" id="timer-bar"></div>
@@ -51,10 +49,10 @@
         </div>
         <div class="interactuar">
             <div class="score">
-                <p>{% trans "Puntaje: " %}{{ puntaje_acumulado }}</p>
+                <p>Puntaje: {{ puntaje_acumulado }}</p>
             </div>
-            <div class="skip">
-                <button type="submit" class="boton_saltar" name="respuesta" value="5">Saltar</button>
+            <div class="skip" id="skip">
+                <button type="submit" class="boton_saltar" name="respuesta" value="5" >Saltar</button>
             </div>
 
         </div>
@@ -63,14 +61,26 @@
 <script src='{% static "./js/respondercategoria.js" %}'></script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
-        let countdown = 15.00;
+        let countdown;
+        let interval;
+
         const messages = document.querySelectorAll('#message-container-answer li');
         const countdownDisplay = document.getElementById('countdown-display');
         const timerBar = document.getElementById('timer-bar');
         const form = document.getElementById('responder-form');
+        const boton1 = document.getElementById('boton1');
+        const boton2 = document.getElementById('boton2');
+        const boton3 = document.getElementById('boton3');
+        const boton4 = document.getElementById('boton4');
+        const skip = document.getElementById('skip');
         const buttons = document.getElementsByName('respuesta'); // Selecciona todos los botones con name="respuesta"
         let buttonClicked = false;
-        const interval = setInterval(function () {
+        const trivia_respuesta = "{{trivia_respuesta}}";
+        const respuesta_seleccionada = "{{respuesta_seleccionada}}"
+        
+        function startCountdown() {
+            countdown = 15.00;
+            interval = setInterval(function () {
                 countdown -= 0.01;
                 countdownDisplay.textContent = countdown.toFixed(0);
                 timerBar.style.width = (countdown / 15) * 100 + '%';
@@ -81,7 +91,10 @@
                         countdownDisplay.textContent = '0';
                     }
                 }
-            }, 1);
+            }, 5);
+        }
+
+        startCountdown(); // Inicia el temporizador al cargar la página
 
         buttons.forEach(button => {
             button.addEventListener('click', function () {
@@ -95,44 +108,75 @@
                 form.appendChild(inputTiempo);
             });
         });
+
         function redirectAfterDelay() {
             setTimeout(() => {
                 window.location.href = "{% url 'home_jugador' %}"; // Redirigir a la página 'home_jugador'
-            }, 60000);
+            }, 10000);
         }
+
         messages.forEach(message => {
             if (message.classList.contains('error')) {
-                //  mensajes de error
-                form.style.display = 'none';
+                // Mensajes de error
+                form.style.display = 'block';
+                /*
                 message.style.display = 'block'
                 const errorIcon = document.createElement('img');
                 errorIcon.src = "{% static 'img/brainby_triste.png' %}";
-                errorIcon.alt = "Success Icon";
+                errorIcon.alt = "Error Icon";
                 errorIcon.style.width = '300px';
                 errorIcon.style.height = 'auto';
                 errorIcon.style.display = 'block';
                 errorIcon.style.margin = '0 auto';
 
                 message.insertBefore(errorIcon, message.firstChild);
-                message.style.color = 'red';
+                message.style.color = 'red';*/
+                message.style.display = 'none';
+                countdownDisplay.style.display = 'none';
+                timerBar.style.display = 'none';
+                skip.style.display = 'none';
+
+            // Mapear respuestas a botones
+            const respuestaBotones = {
+                1: boton1,
+                2: boton2,
+                3: boton3,
+                4: boton4
+            };
+
+            // Verificar respuesta seleccionada
+            if (trivia_respuesta >= 1 && trivia_respuesta <= 4) {
+                // Limpiar todas las clases previas
+                Object.values(respuestaBotones).forEach(boton => {
+                    boton.classList.remove("incorrecto", "correcto");
+                    boton.disabled = true;
+                });
+
+                // Asignar clases según la respuesta seleccionada
+                if (respuesta_seleccionada in respuestaBotones) {
+                    respuestaBotones[respuesta_seleccionada].classList.add("incorrecto");
+                }
+                respuestaBotones[trivia_respuesta].classList.add("correcto");
+            }
+
+
+
+
+                
+
+
                 setTimeout(() => {
-                    message.style.display = 'none';
-                    window.location.href = "{% url 'home_jugador' %}";
-                }, 6000);
-
-
+                    
+                    redirectAfterDelay();
+                }, 1000);
             } else if (message.classList.contains('info')) {
-                //mesaje de informacion
+                // Mensaje de información
                 form.style.display = 'none';
-
-                message.style.color = 'yellow'
-
-                redirectAfterDelay()
-
+                message.style.color = 'yellow';
+                redirectAfterDelay();
             } else if (message.classList.contains('success')) {
-                // mensajes de éxito
+                // Mensajes de éxito
                 form.style.display = 'none';
-
                 message.style.display = 'block';
                 const successIcon = document.createElement('img');
                 successIcon.src = "{% static 'img/brainby.png' %}";
@@ -144,18 +188,20 @@
 
                 message.insertBefore(successIcon, message.firstChild);
 
-
                 setTimeout(() => {
                     message.style.display = 'none';
                     form.style.display = 'block';
-                }, 5000); // Ocultar 
+                    startCountdown(); // Reinicia el temporizador después de mostrar el mensaje de éxito
+                }, 5000); // Ocultar el mensaje después de 5 segundos
             }
         });
+
         form.addEventListener('submit', function () {
             clearInterval(interval);
         });
     });
 </script>
+
 
 
 

@@ -27,6 +27,16 @@
   .message-container ul li{
     list-style: none;
   }
+
+  .correcto {
+    background-color: green;
+    color: white;
+}
+
+.incorrecto {
+    background-color: red;
+    color: white;
+}
 /*******************************************************************************************************/
 /*******************************************************************************************************/
 /*******************************************************************************************************/
@@ -1148,6 +1158,10 @@
         
        
     }
+    .bienvenido{
+    margin-top: -70px;
+        
+    }
 
     .brainby{
         display: none;
@@ -1156,9 +1170,10 @@
     .slide{
         width: 100vw;
         max-width: 1110px;
-        height: 720px;
-        
+        height: 620px;
+       
         overflow: hidden;
+        margin-top: 0;
 
     
     }
@@ -1169,7 +1184,11 @@
         width: 400%;
         animation: slide 20s infinite cubic-bezier(0.55, 0.48, 0.37, 0.92);
         
+        margin-top: -60px;
+        margin-bottom: -65px;
+        
     }
+    
 
     .slide image{
         width: 100%;
@@ -1373,7 +1392,7 @@
     .timer {
         width: 100%;
         background-color: #f3f3f3;
-        border: 1px solid #ccc;
+        
         border-radius: 5px;
         overflow: hidden;
         margin-top: 10px;
@@ -1427,6 +1446,17 @@
         list-style: none;
         margin-left: 20px;
      }
+
+     
+  .correcto {
+    background-color: green;
+    color: white;
+}
+
+.incorrecto {
+    background-color: red;
+    color: white;
+}
  }
 
  

@@ -116,6 +116,7 @@ def procesar_respuesta(request):
         trivia_id = request.POST.get('trivia_id')
         respuesta_seleccionada = int(request.POST.get('respuesta'))
         tiempo_restante = float(request.POST.get('tiempo_restante'))
+        
             
         print(f"categoria_id: {categoria_id}")
         print(f"trivia_id: {trivia_id}")
@@ -131,13 +132,21 @@ def procesar_respuesta(request):
             
             # Verificar si la respuesta seleccionada es correcta
             if respuesta_seleccionada == trivia.respuesta:
-                # Actualizar el puntaje del jugador
-                actualizar_puntaje(request.user, categoria, 100)
-                
-                # Mostrar mensaje de éxito
-                mensaje_exito = "¡FELICIDADES, Respuesta correcta! Has ganado 100 puntos."
-                messages.success(request, mensaje_exito)
-                print(mensaje_exito)
+
+                if (tiempo_restante <= 0):   
+                    # Actualizar el puntaje del jugador
+                    actualizar_puntaje(request.user, categoria, 100)
+                    # Mostrar mensaje de éxito
+                    mensaje_exito = "¡FELICIDADES, Respuesta correcta! Has ganado 100 puntos."
+                    messages.success(request, mensaje_exito)
+                    print(mensaje_exito)
+                else:
+                    # Actualizar el puntaje del jugador
+                    actualizar_puntaje(request.user, categoria, 200)
+                    # Mostrar mensaje de éxito
+                    mensaje_exito = "¡FELICIDADES, Respuesta correcta! Has ganado 200 puntos."
+                    messages.success(request, mensaje_exito)
+                    print(mensaje_exito)
                 
                 # Obtener la categoría de la trivia
                 categoria = trivia.categoria
@@ -166,7 +175,7 @@ def procesar_respuesta(request):
                 mensaje_error = f"Respuesta incorrecta. La respuesta correcta era {trivia.respuesta}"
                 messages.error(request, mensaje_error)
                 print(mensaje_error)
-                return render(request, 'respondercategoria.html', {'mensaje': mensaje_error})
+                return render(request, 'respondercategoria.html', {'trivia': trivia,'categoria_nombre': categoria.nombre,'categoria_id': categoria.id,'puntaje_acumulado': jugador.puntaje_acumulado,'mensaje': mensaje_error, 'trivia_respuesta': trivia.respuesta, 'respuesta_seleccionada': respuesta_seleccionada})
         else:
                 # Obtener la categoría de la trivia
                 categoria = trivia.categoria
