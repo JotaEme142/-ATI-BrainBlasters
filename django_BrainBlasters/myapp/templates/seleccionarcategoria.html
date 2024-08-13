@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
+{% load static %}
 {% block content %}
 
 <div class="container-seleccionar_categoria">
@@ -9,7 +11,7 @@
     
     <form class="sel_Cat" method="post" action="{% url 'respondercategoria' %}">
         {% csrf_token %}
-        <h2 class="title_selCat">Selecciona Categoría</h2>
+        <h2 class="title_selCat">{% trans "Selecciona Categoría" %}</h2>
         {% for categoria in categorias %}
             <button type="submit" class="boton_categoria" value="{{ categoria.id }}" name="categoria_id">{{ categoria.nombre }}</button>
         {% endfor %}

@@ -1,0 +1,193 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-13 14:03-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: .\myapp\templates\base_SeleccionarCategoria.html:43
+msgid "Seleccionar categoría"
+msgstr "Select category"
+
+#: .\myapp\templates\editar_perfil.html:7
+msgid "Editar Perfil"
+msgstr "Edit Profile"
+
+#: .\myapp\templates\editar_perfil.html:11
+msgid "Guardar cambios"
+msgstr "Save changes"
+
+#: .\myapp\templates\help.html:8
+msgid "Reglas del juego"
+msgstr "Rules of the game"
+
+#: .\myapp\templates\help.html:10
+msgid "Registro e Inicio de Sesión"
+msgstr "Registration and Login"
+
+#: .\myapp\templates\help.html:11
+msgid "Registro:"
+msgstr "Registration"
+
+#: .\myapp\templates\help.html:11
+msgid ""
+" Todos los usuarios deben registrarse en la aplicación para poder participar "
+"en las trivias. Durante el registro, se les pedirá que definan un alias. "
+"Este alias se mostrará cada vez que el usuario participe en un Ranking. "
+msgstr ""
+" All users must register in the application to participate in trivia. During "
+"registration, you will be asked to define an alias. This alias will be "
+"displayed every time the user participates in a Ranking. "
+
+#: .\myapp\templates\help.html:13
+msgid " Inicio de Sesión:"
+msgstr " Login:"
+
+#: .\myapp\templates\help.html:13
+msgid ""
+" Una vez registrado, el usuario debe iniciar sesión para acceder a las "
+"trivias, ver su perfil, y consultar su posición en el ranking."
+msgstr ""
+"Once registered, the user must log in to access thetrivia, see your profile, "
+"and check your position in the ranking."
+
+#: .\myapp\templates\help.html:15
+msgid "Elección de Categorías"
+msgstr "Choice of Categories"
+
+#: .\myapp\templates\help.html:16
+msgid "Selección de Trivia: "
+msgstr "Trivia Selection: "
+
+#: .\myapp\templates\help.html:16
+msgid ""
+"Los usuarios pueden escoger la categoría de trivia que desean jugar. Las "
+"categorías disponibles incluyen entretenimiento, deporte, lenguajes de "
+"programación, efemérides, marcas de logotipos, canciones, entre otras."
+msgstr ""
+"Users can choose the trivia category they want to play. The Available "
+"categories include entertainment, sports, languagesprogramming, "
+"anniversaries, logo brands, songs, among others."
+
+#: .\myapp\templates\help.html:18
+msgid "Responder Trivias"
+msgstr "Answer Trivia"
+
+#: .\myapp\templates\help.html:20
+msgid "Formato de la Trivia: "
+msgstr "Trivia Format:"
+
+#: .\myapp\templates\help.html:20
+msgid "Cada trivia consiste en una pregunta con cuatro posibles respuestas."
+msgstr "Each trivia consists of a question with four possible answers."
+
+#: .\myapp\templates\help.html:22
+msgid ""
+"Solo una de ellas es correcta. Algunas trivias pueden incluir imágenes junto "
+"a la pregunta."
+msgstr ""
+"Only one of them is correct. Some trivia may include images along with itto "
+"the question."
+
+#: .\myapp\templates\help.html:24
+msgid " Puntaje: "
+msgstr " Score: "
+
+#: .\myapp\templates\help.html:24
+msgid "Se otorgan 100 puntos por cada respuesta correcta. "
+msgstr "100 points are awarded for each correct answer."
+
+#: .\myapp\templates\help.html:26
+msgid ""
+"Si el usuario responde correctamente dentro de un período de tiempo "
+"establecido, recibe un bono adicional de 200 puntos."
+msgstr ""
+"If the user responds correctly within a period of time established, receive "
+"an additional bonus of 200 points."
+
+#: .\myapp\templates\help.html:30
+msgid "Rankings y Premios"
+msgstr "Rankings and Awards"
+
+#: .\myapp\templates\help.html:32
+msgid "Ranking: "
+msgstr "Ranking: "
+
+#: .\myapp\templates\help.html:32
+msgid ""
+"Los puntos acumulados por cada usuario se reflejan en un ranking global de "
+"jugadores."
+msgstr ""
+"The points accumulated by each user are reflected in a global ranking of "
+"players."
+
+#: .\myapp\templates\help.html:34
+msgid "Premios por Ranking: "
+msgstr "Ranking Awards: "
+
+#: .\myapp\templates\help.html:34
+msgid ""
+"Los tres jugadores con más puntos al momento de cada sorteo ganan premios "
+"especiales. Los administradores determinan las fechas de estos sorteos."
+msgstr ""
+"The three players with the most points at the time of each draw win "
+"prizesspecials. The administrators determine the dates of these drawings."
+
+#: .\myapp\templates\help.html:36
+msgid "Premios Instantáneos: "
+msgstr "Instant Prizes: "
+
+#: .\myapp\templates\help.html:36
+msgid ""
+"A lo largo del juego, se harán preguntas al azar que otorgan premios "
+"instantáneos. Si un usuario responde correctamente una de estas preguntas, "
+"recibirá un premio de inmediato. No hay un aviso previo para estas "
+"preguntas, por lo que mientras más se juegue, mayor será la oportunidad de "
+"ganar."
+msgstr ""
+"Throughout the game, random questions will be asked that award "
+"prizessnapshots. If a user answers one of these questions correctly, You "
+"will receive a prize immediately. There is no advance notice for "
+"thesequestions, so the more you play, the greater the chance of gain."
+
+#: .\myapp\templates\home_jugador.html:7
+msgid "Bienvenido "
+msgstr "Welcome "
+
+#: .\myapp\templates\home_jugador.html:17
+msgid "Elige una categoría para empezar:"
+msgstr "Choose a category to start:"
+
+#: .\myapp\templates\perfil_jugador.html:11
+
+msgid "Editar"
+msgstr "Edit Profile"
+
+#: .\myapp\templates\perfil_jugador.html:15
+msgid "Estadísticas"
+msgstr "Statistics"
+
+#: .\myapp\templates\perfil_jugador.html:18
+msgid "Puntaje Acumulado: "
+msgstr "Accumulated Score: "
+
+#: .\myapp\templates\respondercategoria.html:54
+msgid "Puntaje: "
+msgstr "Score: "
+
+#: .\myapp\templates\seleccionarcategoria.html:14
+msgid "Selecciona Categoría"
+msgstr "Select category"

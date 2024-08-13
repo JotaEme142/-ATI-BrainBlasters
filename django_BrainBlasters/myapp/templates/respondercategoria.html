@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
+{% load static %}
 {% block content %}
 
 
@@ -49,7 +51,7 @@
         </div>
         <div class="interactuar">
             <div class="score">
-                <p>Puntaje: {{ puntaje_acumulado }}</p>
+                <p>{% trans "Puntaje: " %}{{ puntaje_acumulado }}</p>
             </div>
             <div class="skip">
                 <button type="submit" class="boton_saltar" name="respuesta" value="5">Saltar</button>

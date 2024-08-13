@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
-
+{% load static %}
+{% load i18n %}
 {% block content %}
 <content class="Perfil">
 	<div class="p1">
@@ -7,14 +8,14 @@
 		<p class="alias" >@{{ request.user.alias }}</p>
 		<h2>{{ request.user.nombre }}</h2>
 		<div class="correo"><img src="../static/icons/mail.svg" style="width: 21px; height: 17px;">{{ request.user.email }}</div>
-		<a href="editar_perfil.html"><button class="editButton">Editar</button></a>
+		<a href="editar_perfil.html"><button class="editButton">{% trans "Editar" %}</button></a>
 	</div>
 	
 	<div class="p2">
-		<div>Estadísticas</div>
+		<div >{% trans "Estadísticas" %}</div>
 		<br>
 		<br>
-		<div class="stats" ><p>Puntaje Acumulado: </p>{{ puntaje_acumulado }} pts</div>
+		<div class="stats" ><p>{% trans "Puntaje Acumulado: " %}</p>{{ puntaje_acumulado }} pts</div>
 	</div>
 </content>
 

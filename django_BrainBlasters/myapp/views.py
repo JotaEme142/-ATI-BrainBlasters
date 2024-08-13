@@ -4,6 +4,9 @@ from myapp.models import Categoria, Trivia
 from .models import Jugador
 from .forms import EditProfileForm
 from django.contrib import messages
+from django.conf import settings
+from django.shortcuts import redirect
+from django.utils import translation
 
 def base(request):
     return render(request,"base.html")
@@ -70,8 +73,9 @@ def perfil_jugador(request):
     user_id = request.user.id
 
     try:
-        jugador = Jugador.objects.get(usuario_id=user_id)
-        puntaje_acumulado = jugador.puntaje_acumulado
+        jugador = Jugador.objects.filter(usuario_id=user_id)
+        for elem in jugador:
+            puntaje_acumulado = elem.puntaje_acumulado
     except Jugador.DoesNotExist:
         puntaje_acumulado = 0  # Si no hay registro para este usuario, establecer el puntaje en 0
 
@@ -186,3 +190,10 @@ def procesar_respuesta(request):
                     messages.info(request, mensaje_info)
                     print(mensaje_info)
                     return redirect('home_jugador') 
+
+def set_language(request):
+    user_language = request.GET.get('language', 'es')
+    translation.activate(user_language)
+    response = redirect(request.META.get('HTTP_REFERER', '/'))
+    response.set_cookie(settings.LANGUAGE_COOKIE_NAME, user_language)
+    return response

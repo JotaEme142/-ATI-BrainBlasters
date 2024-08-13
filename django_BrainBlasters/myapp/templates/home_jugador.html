@@ -1,10 +1,10 @@
 
 {% extends 'base.html' %}
-
+{% load i18n %}
 {% load static %}
 {% block content %}
 <div class="container-home_jugador">
-    <div class="bienvenido">Bienvenido {{ request.user.nombre }}</div>
+    <div class="bienvenido">{% trans "Bienvenido " %}{{ request.user.nombre }}</div>
     <img src='{% static "img/brainby.png" %}' alt="" class="brainby">
 
     <div class="slide">
@@ -14,7 +14,7 @@
             <li><img src='{% static "img/3.png" %}'></li>
             <li><img src='{% static "img/4.png" %}'></li>
         </ul>
-<h3 class="text-cat">Elige una categoría para empezar:</h3>
+<h3 class="text-cat">{% trans "Elige una categoría para empezar:" %}</h3>
 <form class="cards-container" method="post" action="{% url 'respondercategoria' %}">
     {% csrf_token %}
     

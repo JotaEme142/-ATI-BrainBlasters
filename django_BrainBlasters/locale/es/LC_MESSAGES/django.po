@@ -1,0 +1,194 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-08-13 14:03-0400\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n == 1 ? 0 : n != 0 && n % 1000000 == 0 ? "
+"1 : 2;\n"
+
+#: .\myapp\templates\base_SeleccionarCategoria.html:43
+msgid "Seleccionar categoría"
+msgstr "Seleccionar categoría"
+
+#: .\myapp\templates\editar_perfil.html:7
+msgid "Editar Perfil"
+msgstr "Editar Perfil"
+
+#: .\myapp\templates\editar_perfil.html:11
+msgid "Guardar cambios"
+msgstr "Guardar cambios"
+
+#: .\myapp\templates\help.html:8
+msgid "Reglas del juego"
+msgstr "Reglas del juego"
+
+#: .\myapp\templates\help.html:10
+msgid "Registro e Inicio de Sesión"
+msgstr "Registro e Inicio de Sesión"
+
+#: .\myapp\templates\help.html:11
+msgid "Registro:"
+msgstr "Registro:"
+
+#: .\myapp\templates\help.html:11
+msgid ""
+" Todos los usuarios deben registrarse en la aplicación para poder participar "
+"en las trivias. Durante el registro, se les pedirá que definan un alias. "
+"Este alias se mostrará cada vez que el usuario participe en un Ranking. "
+msgstr ""
+" Todos los usuarios deben registrarse en la aplicación para poder participar "
+"en las trivias. Durante el registro, se les pedirá que definan un alias. "
+"Este alias se mostrará cada vez que el usuario participe en un Ranking. "
+
+#: .\myapp\templates\help.html:13
+msgid " Inicio de Sesión:"
+msgstr " Inicio de Sesión:"
+
+#: .\myapp\templates\help.html:13
+msgid ""
+" Una vez registrado, el usuario debe iniciar sesión para acceder a las "
+"trivias, ver su perfil, y consultar su posición en el ranking."
+msgstr ""
+" Una vez registrado, el usuario debe iniciar sesión para acceder a las "
+"trivias, ver su perfil, y consultar su posición en el ranking."
+
+#: .\myapp\templates\help.html:15
+msgid "Elección de Categorías"
+msgstr "Elección de Categorías"
+
+#: .\myapp\templates\help.html:16
+msgid "Selección de Trivia: "
+msgstr "Selección de Trivia: "
+
+#: .\myapp\templates\help.html:16
+msgid ""
+"Los usuarios pueden escoger la categoría de trivia que desean jugar. Las "
+"categorías disponibles incluyen entretenimiento, deporte, lenguajes de "
+"programación, efemérides, marcas de logotipos, canciones, entre otras."
+msgstr ""
+"Los usuarios pueden escoger la categoría de trivia que desean jugar. Las "
+"categorías disponibles incluyen entretenimiento, deporte, lenguajes de "
+"programación, efemérides, marcas de logotipos, canciones, entre otras."
+
+#: .\myapp\templates\help.html:18
+msgid "Responder Trivias"
+msgstr "Responder Trivias"
+
+#: .\myapp\templates\help.html:20
+msgid "Formato de la Trivia: "
+msgstr "Formato de la Trivia: "
+
+#: .\myapp\templates\help.html:20
+msgid "Cada trivia consiste en una pregunta con cuatro posibles respuestas."
+msgstr "Cada trivia consiste en una pregunta con cuatro posibles respuestas."
+
+#: .\myapp\templates\help.html:22
+msgid ""
+"Solo una de ellas es correcta. Algunas trivias pueden incluir imágenes junto "
+"a la pregunta."
+msgstr ""
+"Solo una de ellas es correcta. Algunas trivias pueden incluir imágenes junto "
+"a la pregunta."
+
+#: .\myapp\templates\help.html:24
+msgid " Puntaje: "
+msgstr " Puntaje: "
+
+#: .\myapp\templates\help.html:24
+msgid "Se otorgan 100 puntos por cada respuesta correcta. "
+msgstr "Se otorgan 100 puntos por cada respuesta correcta. "
+
+#: .\myapp\templates\help.html:26
+msgid ""
+"Si el usuario responde correctamente dentro de un período de tiempo "
+"establecido, recibe un bono adicional de 200 puntos."
+msgstr ""
+"Si el usuario responde correctamente dentro de un período de tiempo "
+"establecido, recibe un bono adicional de 200 puntos."
+
+#: .\myapp\templates\help.html:30
+msgid "Rankings y Premios"
+msgstr "Rankings y Premios"
+
+#: .\myapp\templates\help.html:32
+msgid "Ranking: "
+msgstr "Ranking: "
+
+#: .\myapp\templates\help.html:32
+msgid ""
+"Los puntos acumulados por cada usuario se reflejan en un ranking global de "
+"jugadores."
+msgstr ""
+"Los puntos acumulados por cada usuario se reflejan en un ranking global de "
+"jugadores."
+
+#: .\myapp\templates\help.html:34
+msgid "Premios por Ranking: "
+msgstr "Premios por Ranking: "
+
+#: .\myapp\templates\help.html:34
+msgid ""
+"Los tres jugadores con más puntos al momento de cada sorteo ganan premios "
+"especiales. Los administradores determinan las fechas de estos sorteos."
+msgstr ""
+"Los tres jugadores con más puntos al momento de cada sorteo ganan premios "
+"especiales. Los administradores determinan las fechas de estos sorteos."
+
+#: .\myapp\templates\help.html:36
+msgid "Premios Instantáneos: "
+msgstr "Premios Instantáneos: "
+
+#: .\myapp\templates\help.html:36
+msgid ""
+"A lo largo del juego, se harán preguntas al azar que otorgan premios "
+"instantáneos. Si un usuario responde correctamente una de estas preguntas, "
+"recibirá un premio de inmediato. No hay un aviso previo para estas "
+"preguntas, por lo que mientras más se juegue, mayor será la oportunidad de "
+"ganar."
+msgstr ""
+"A lo largo del juego, se harán preguntas al azar que otorgan premios "
+"instantáneos. Si un usuario responde correctamente una de estas preguntas, "
+"recibirá un premio de inmediato. No hay un aviso previo para estas "
+"preguntas, por lo que mientras más se juegue, mayor será la oportunidad de "
+"ganar."
+
+#: .\myapp\templates\home_jugador.html:7
+msgid "Bienvenido "
+msgstr "Bienvenido "
+
+#: .\myapp\templates\home_jugador.html:17
+msgid "Elige una categoría para empezar:"
+msgstr "Elige una categoría para empezar:"
+
+#: .\myapp\templates\perfil_jugador.html:11
+msgid "Editar"
+msgstr "Editar Perfil"
+
+#: .\myapp\templates\perfil_jugador.html:15
+msgid "Estadísticas"
+msgstr "Estadísticas"
+
+#: .\myapp\templates\perfil_jugador.html:18
+msgid "Puntaje Acumulado: "
+msgstr "Puntaje Acumulado: "
+
+#: .\myapp\templates\respondercategoria.html:54
+msgid "Puntaje: "
+msgstr "Puntaje: "
+
+#: .\myapp\templates\seleccionarcategoria.html:14
+msgid "Selecciona Categoría"
+msgstr "Seleccionar categoría"
