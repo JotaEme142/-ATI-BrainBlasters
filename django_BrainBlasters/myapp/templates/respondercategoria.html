@@ -48,15 +48,34 @@
             <p><span id="countdown-display">15</span> </p>
         </div>
         <div class="interactuar">
-            <div class="score">
+            <div class="score" id="score">
                 <p>Puntaje: {{ puntaje_acumulado }}</p>
             </div>
             <div class="skip" id="skip">
                 <button type="submit" class="boton_saltar" name="respuesta" value="5" >Saltar</button>
             </div>
+            <div class="aceptar" id="aceptar">
+                <h3 style="font-family: Poppins;">Ups, parece que esa respuesta no es la correcta.</h3>
+                <button type="button" class="boton_aceptar" id="boton_aceptar" name="respuesta" value="10">Aceptar</button>
+            </div>
 
         </div>
     </form>
+        {% if trivia.tipo == null %}
+        <style>
+            #responder-form {
+                display: none; /* Oculta el formulario */
+            }
+            #contenedorDeMensajes{
+                display: none;
+            }
+        </style>
+        <div class="no-trivia">
+            <img src='{% static "./img/brainby_triste.png" %}' alt="" class="brainby_triste">
+        <h2>No hay trivias disponibles en esta categoría</h2>
+        <p>Por favor, inténtalo de nuevo más tarde.</p>
+        </div>
+        {% endif %}
 </div>
 <script src='{% static "./js/respondercategoria.js" %}'></script>
 <script>
@@ -76,9 +95,21 @@
         const buttons = document.getElementsByName('respuesta'); // Selecciona todos los botones con name="respuesta"
         let buttonClicked = false;
         const trivia_respuesta = "{{trivia_respuesta}}";
-        const respuesta_seleccionada = "{{respuesta_seleccionada}}"
+        const respuesta_seleccionada = "{{respuesta_seleccionada}}";
+        const trivia_id = "{{ trivia.id }}";
+        if(trivia_id=='null'){
+            console.log("No hay mas trivias para esta categoria");
+            skip.style.color='blue';
+        }
+        const score = document.getElementById('score');
+        const aceptar = document.getElementById('aceptar');
+        const boton_aceptar = document.getElementById('boton_aceptar');
+
         
         function startCountdown() {
+            if (interval) {
+            clearInterval(interval);
+        }
             countdown = 15.00;
             interval = setInterval(function () {
                 countdown -= 0.01;
@@ -91,10 +122,17 @@
                         countdownDisplay.textContent = '0';
                     }
                 }
-            }, 5);
+            }, 10);
         }
 
+        
+        
+
         startCountdown(); // Inicia el temporizador al cargar la página
+
+
+
+
 
         buttons.forEach(button => {
             button.addEventListener('click', function () {
@@ -110,6 +148,7 @@
         });
 
         function redirectAfterDelay() {
+      
             setTimeout(() => {
                 window.location.href = "{% url 'home_jugador' %}"; // Redirigir a la página 'home_jugador'
             }, 10000);
@@ -135,6 +174,11 @@
                 countdownDisplay.style.display = 'none';
                 timerBar.style.display = 'none';
                 skip.style.display = 'none';
+                score.style.display = 'none';
+                aceptar.style.display = 'block';
+                boton_aceptar.addEventListener('click', function () {
+                    window.location.href = "{% url 'home_jugador' %}"; // Redirigir a la página 'home_jugador'
+                });
 
             // Mapear respuestas a botones
             const respuestaBotones = {
@@ -166,14 +210,30 @@
 
 
                 setTimeout(() => {
-                    
+                    message.style.display = 'none';
                     redirectAfterDelay();
-                }, 1000);
+                }, 60000);
             } else if (message.classList.contains('info')) {
                 // Mensaje de información
                 form.style.display = 'none';
-                message.style.color = 'yellow';
+                message.style.display = 'block'
+                const infoIcon = document.createElement('img');
+                infoIcon.src = "{% static 'img/brainby_triste.png' %}";
+                infoIcon.alt = "Info Icon";
+                infoIcon.style.width = '300px';
+                infoIcon.style.height = 'auto';
+                infoIcon.style.display = 'block';
+                infoIcon.style.margin = '0 auto';
+
+                setTimeout(() => {
+                    message.style.display = 'none';
+                    
+                }, 3000); // Ocultar el mensaje después de 5 segundos
+
                 redirectAfterDelay();
+
+
+
             } else if (message.classList.contains('success')) {
                 // Mensajes de éxito
                 form.style.display = 'none';
@@ -181,7 +241,7 @@
                 const successIcon = document.createElement('img');
                 successIcon.src = "{% static 'img/brainby.png' %}";
                 successIcon.alt = "Success Icon";
-                successIcon.style.width = '300px';
+                successIcon.style.width = '200px';
                 successIcon.style.height = 'auto';
                 successIcon.style.display = 'block';
                 successIcon.style.margin = '0 auto';
@@ -192,7 +252,7 @@
                     message.style.display = 'none';
                     form.style.display = 'block';
                     startCountdown(); // Reinicia el temporizador después de mostrar el mensaje de éxito
-                }, 5000); // Ocultar el mensaje después de 5 segundos
+                }, 3000); // Ocultar el mensaje después de 5 segundos
             }
         });
 

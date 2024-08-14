@@ -24,7 +24,13 @@
                 <img src='{% static "icons/medal.svg" %}' alt="">
             </div>
         </header>
-        
+        <form action="{% url 'set_language' %}" method="get" class="idioma">
+            <select name="language" onchange="this.form.submit()">
+                <option value="es" {% if LANGUAGE_CODE == 'es' %}selected{% endif %}>Español</option>
+                <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
+                <option value="pt" {% if LANGUAGE_CODE == 'pt' %}selected{% endif %}>Português</option>
+            </select>
+        </form>
             
         
         <div class="logo">
@@ -32,6 +38,7 @@
             <img src='{% static "icons/brain.svg" %}' alt="brain">
             <h1 class="Blasters">Blasters</h1>
         </div>
+       
         
         <div class="space"></div>
         
@@ -57,13 +64,7 @@
         </div>
           
     </div>
-    <form action="{% url 'set_language' %}" method="get">
-        <select name="language" onchange="this.form.submit()">
-            <option value="es" {% if LANGUAGE_CODE == 'es' %}selected{% endif %}>Español</option>
-            <option value="en" {% if LANGUAGE_CODE == 'en' %}selected{% endif %}>English</option>
-            <option value="pt" {% if LANGUAGE_CODE == 'pt' %}selected{% endif %}>Português</option>
-        </select>
-    </form>
+
     <footer>Copyright</footer>
     <script src='{% static "js/respondercategoria.js" %}'></script>
 </body>

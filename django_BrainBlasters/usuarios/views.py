@@ -34,8 +34,6 @@ def register(request):
             if not User.objects.filter(email=email).exists():
                 user = User.objects.create_user(email=email, password=password, nombre=nombre, alias=alias)
                 user.save()
-                jugador = Jugador.objects.create(usuario=user, categoria=None)
-                jugador.save()
                 messages.success(request, 'Tu cuenta ha sido creada exitosamente.')
                 return redirect('login')
             else:

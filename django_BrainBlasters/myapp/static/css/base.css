@@ -1142,7 +1142,25 @@
         font-size: 1.2em;
         border: none;
     }
-
+    .aceptar{
+        display: none;
+    }
+    .aceptar h3{
+        color: #290C41;
+    }
+    .boton_aceptar{
+        background-color: #CF1673;
+        border-radius: 25px;
+        padding: 10px;
+        width: 100%;
+        font-size: 1.2em;
+        border: none;
+        color: #ffffff;
+        margin-top: 10px;
+    }
+    .boton_aceptar:hover{
+        background-color: #290C41;
+    }
     .container-home_jugador{
         
         width: 80%;
@@ -1411,9 +1429,9 @@
     }
     .success{
         display: none;
-        background-color: #F1DAFF;
+        
         width: 100%;
-        color: #290C41;
+        color: #ffffff;
         font-family: Poppins;
         font-size: 1.2em;
         border-radius: 20px;
@@ -1421,7 +1439,7 @@
         justify-content: center;
         align-items: center;
         padding: 20px;
-        color: green;
+       
         
 
     }
@@ -1442,6 +1460,21 @@
 
     }
 
+    .info{
+        display: none;
+        background-color: #F1DAFF;
+        width: 100%;
+        color: #290C41;
+        font-family: Poppins;
+        font-size: 1em;
+        border-radius: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        color: red;
+    }
+
     #message-container-answer ul li{
         list-style: none;
         margin-left: 20px;
@@ -1456,6 +1489,44 @@
 .incorrecto {
     background-color: red;
     color: white;
+}
+.idioma{
+  margin-left: 88%;
+  font-family: Poppins;
+  position: absolute;
+  z-index:10 ;
+}
+
+.idioma select{
+    padding: 8px;
+    border-radius: 10px;
+    
+}
+
+option{
+    padding: 10px;
+    font-size: 14px;
+    
+
+}
+
+.no-trivia{
+    font-family: Poppins;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.brainby_triste{
+    width: 200px;
+    height: 200px;
+}
+
+.boton_categoria img{
+    width: 100px;
+    height: auto;
 }
  }
 
