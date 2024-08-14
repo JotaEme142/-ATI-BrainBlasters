@@ -3,22 +3,43 @@
 {% load i18n %}
 {% block content %}
 <content class="Perfil">
-	<div class="p1">
-		<a href="editar_perfil.html"><img class="userCircle" src="../static/icons/userCircle.png"></a>
-		<p class="alias" >@{{ request.user.alias }}</p>
-		<h2>{{ request.user.nombre }}</h2>
-		<div class="correo"><img src="../static/icons/mail.svg" style="width: 21px; height: 17px;">{{ request.user.email }}</div>
-		<a href="editar_perfil.html"><button class="editButton">{% trans "Editar" %}</button></a>
-	</div>
-	
-	<div class="p2">
-		<div >{% trans "Estadísticas" %}</div>
-		<br>
-		<br>
-		<div class="stats" ><p>{% trans "Puntaje Acumulado: " %}</p>{{ puntaje_acumulado }} pts</div>
-	</div>
+    <div class="p1">
+        <a href="editar_perfil.html"><img class="userCircle" src="{% static 'icons/userCircle.png' %}"></a>
+        <p class="alias">@{{ request.user.alias }}</p>
+        <h2>{{ request.user.nombre }}</h2>
+        <div class="correo"><img src="{% static 'icons/mail.svg' %}" style="width: 21px; height: 17px;">{{ request.user.email }}</div>
+        <a href="editar_perfil.html"><button class="editButton">{% trans "Editar" %}</button></a>
+    </div>
+    
+    <div class="p2">
+        <div>{% trans "Estadísticas" %}</div>
+        <br>
+        <br>
+        <table class="stats">
+            <thead>
+                <tr>
+                    <th class="categoria">{% trans "Categoria" %}</th>
+                    <th class="puntaje">{% trans "Puntaje Acumulado" %}</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for jugador in jugadores %}
+                <tr>
+                    <td class="categoria">{{ jugador.categoria }}</td>
+                    <td class="puntaje">{{ jugador.puntaje_acumulado }} pts</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </content>
 
-
-
+<style>
+    .stats th.categoria, .stats td.categoria {
+        padding-right: 20px; /* Ajusta el valor según sea necesario */
+    }
+    .stats th.puntaje, .stats td.puntaje {
+        padding-left: 20px; /* Ajusta el valor según sea necesario */
+    }
+</style>
 {% endblock %}

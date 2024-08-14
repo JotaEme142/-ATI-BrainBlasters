@@ -1,0 +1,23 @@
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function mostrarAlerta() {
+        Swal.fire({
+            title: '¡TRIVIA SORPRESA!',
+            html: `
+                <form id="triviaForm" method="POST" action="" class="sorpresa">
+                    <h2>{{ trivia_pregunta }}</h2>
+                    {% csrf_token %}
+                    <button type="submit" class="boton_categoria" name="respuesta" value="1" id="boton1">{{ trivia.opcion_txt1 }}</button>
+                    <button type="submit" class="boton_categoria" name="respuesta" value="2" id="boton2">{{ trivia.opcion_txt2 }}</button>
+                    <button type="submit" class="boton_categoria" name="respuesta" value="3" id="boton3">{{ trivia.opcion_txt3 }}</button>
+                    <button type="submit" class="boton_categoria" name="respuesta" value="4" id="boton4">{{ trivia.opcion_txt4 }}</button>
+                </form>
+            `,
+            showConfirmButton: false
+        });
+    }
+
+    // Llama a la función para mostrar la alerta
+    mostrarAlerta();
+</script>

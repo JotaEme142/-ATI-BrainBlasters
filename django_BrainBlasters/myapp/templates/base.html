@@ -9,6 +9,7 @@
     <title>BrainBlasters</title>
     <link rel="shortcut icon" href='{% static "./icons/brain.svg" %}'>
     <link rel="stylesheet" href='{% static "css/base.css" %}'>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     
 
 
@@ -46,8 +47,10 @@
         
         {% block content %}
         
+        
         {% endblock %}
-    
+        
+        
         <nav class="menu">
             <ul class="lista-iconos">
               <li><a href="{% url 'home_jugador' %}"><img src='{% static "icons/home.svg" %}' alt="home" class="icon-menu"></a></li>
@@ -65,7 +68,21 @@
           
     </div>
 
+
     <footer>Copyright</footer>
+    <script>
+       const frecuencia = 60000;
+        function redirigirAutomaticamente() {
+            setTimeout(function() {
+                window.location.href = "{% url 'trivia_sorpresa' %}";
+            }, frecuencia); // 10000 milisegundos = 10 segundos
+        }
+
+        // Llamar a la función cuando la página se cargue
+        window.onload = redirigirAutomaticamente;
+    </script>
+    <script src='{% static "js/trivia-sorpresa.js" %}'></script>
     <script src='{% static "js/respondercategoria.js" %}'></script>
+    
 </body>
 </html>

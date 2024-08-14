@@ -4,6 +4,9 @@
     margin: 0;
     padding: 0;
 }
+.hidden{
+    display: none;
+}
 .bienvenido{
     color: #ffffff;
     font-size: 1.2em;
@@ -37,6 +40,12 @@
     background-color: red;
     color: white;
 }
+.brainby_triste{
+    width: 200px;
+    height: 200px;
+}
+
+
 /*******************************************************************************************************/
 /*******************************************************************************************************/
 /*******************************************************************************************************/
@@ -238,7 +247,7 @@
         height: 100vh;
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
         flex-direction: column;
         margin-top: 0;
 
@@ -335,7 +344,7 @@
     .Perfil{
         margin-top: 50px;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         position: absolute;
         font-family: Poppins;
     }
@@ -343,6 +352,7 @@
     .p1{
         display: flex;
         flex-direction: column;
+        margin-bottom: 20px;
     }
 
     .p1 .alias{
@@ -444,6 +454,97 @@
         margin-top: 20px;
         position: relative;
         left: 60px;
+    }
+    .container-seleccionar_categoria, .container-responder_categoria {
+        width: 100vw;
+        margin: auto;
+       
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 90vh;
+    }
+    .sel_Cat, .res_Cat {
+        width: 700px; /* Asegura que el formulario ocupe todo el ancho del contenedor */
+        text-align: center; /* Centra el contenido del formulario horizontalmente */
+        background-color: #f1daff;
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+        font-family: Poppins;
+        padding: 2%;
+    }
+
+    .sel_Cat > * {
+        margin: 10px auto;
+    }
+    .boton_categoria {
+        margin: 10px auto;
+        width: 60%;
+        border: none;
+        border-radius: 30px;
+        background-color: #ffffff;
+        padding: 10px;
+        font-size: 1em;
+        font-family: Poppins;
+    }
+
+    .title_resCat{
+        color: #AF63EE;
+        margin-bottom: 25%;
+        font-size: 2.5em;
+        font-family: Poppins;
+    }
+    .title_selCat{
+        color: #AF63EE;
+        font-family: Poopins;
+        
+       
+    }
+
+    .responder-form h2{
+        font-size: 1em;
+    }
+
+    .aceptar{
+        display: none;
+    }
+    .aceptar h3{
+        color: #290C41;
+    }
+    .boton_aceptar{
+        background-color: #CF1673;
+        border-radius: 25px;
+        padding: 10px;
+        width: 100%;
+        font-size: 1.2em;
+        border: none;
+        color: #ffffff;
+        margin-top: 10px;
+    }
+    .no-trivia{
+        font-family: Poppins;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .skip{
+        width: 60%;
+        background-color: #CF1673;
+        border-radius: 25px;
+        margin: 0 10%;
+    }
+    .boton_saltar{
+        background-color: #CF1673;
+        border-radius: 25px;
+        padding: 5%;
+        width: 100%;
+        font-size: 1.2em;
+        border: none;
     }
     
 }
@@ -637,7 +738,7 @@
         height: 100vh;
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items: flex-start;
         flex-direction: column;
         margin-top: 0;
 
@@ -846,7 +947,122 @@
         position: relative;
         left: 60px;
     }
+    .container-seleccionar_categoria, .container-responder_categoria {
+        width: 80%;
+        margin: auto;
+       
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        height: 120vh;
+        margin-bottom: 800px;
+    }
+    .sel_Cat, .res_Cat {
+        width: 100%; /* Asegura que el formulario ocupe todo el ancho del contenedor */
+        text-align: center; /* Centra el contenido del formulario horizontalmente */
+        background-color: #f1daff;
+        display: flex;
+        flex-direction: column;
+        border-radius: 20px;
+        font-family: Poppins;
+        padding: 2%;
+        margin-bottom: 400px;
+        height: auto;
+        
+    }
 
+    .sel_Cat > * {
+        margin: 10px auto;
+    }
+
+    .boton_categoria {
+        margin: 10px auto;
+        width: 60%;
+        border: none;
+        border-radius: 30px;
+        background-color: #ffffff;
+        padding: 10px;
+        font-size: 1em;
+        font-family: Poppins;
+    }
+
+    .title_resCat{
+        color: #AF63EE;
+        margin-bottom: 25%;
+        font-size: 2.5em;
+        font-family: Poppins;
+    }
+    .title_selCat{
+        color: #AF63EE;
+        font-family: Poppins;
+        
+       
+    }
+
+    .aceptar{
+        display: none;
+    }
+    .aceptar h3{
+        color: #290C41;
+    }
+    .boton_aceptar{
+        background-color: #CF1673;
+        border-radius: 25px;
+        padding: 10px;
+        width: 100%;
+        font-size: 1.2em;
+        border: none;
+        color: #ffffff;
+        margin-top: 10px;
+    }
+
+    .no-trivia{
+        font-family: Poppins;
+        color: #ffffff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .skip{
+        width: 60%;
+        background-color: #CF1673;
+        border-radius: 25px;
+        margin: 0 10%;
+    }
+    .boton_saltar{
+        background-color: #CF1673;
+        border-radius: 25px;
+        padding: 5%;
+        width: 100%;
+        font-size: 1.2em;
+        border: none;
+    }
+    .boton_categoria img{
+        width: 100px;
+        height: auto;
+    }
+
+    .idioma{
+        margin-left: 70%;
+        font-family: Poppins;
+        position: absolute;
+        z-index:10 ;
+      }
+
+      .idioma select{
+        padding: 8px;
+        border-radius: 10px;
+        
+    }
+    
+    option{
+        padding: 10px;
+        font-size: 14px;
+        
+    
+    }
 }
 
 /*******************************************************************************************************/
@@ -878,7 +1094,7 @@
         height: 100vh;
         display: flex;
         justify-content: start;
-        align-items: center;
+        align-items: flex-start;
         flex-direction: row-reverse;
         margin-top: 0;
 
@@ -1528,6 +1744,18 @@ option{
     width: 100px;
     height: auto;
 }
+
+#triviaForm h2{
+    font-family: Poppins;
+    color: #290C41;
+}
+
+#triviaForm button{
+    border-color: #CF1673;
+    border: solid 1px;
+
+}
+
  }
 
  

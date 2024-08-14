@@ -7,6 +7,7 @@ from django.contrib import messages
 from django.conf import settings
 from django.shortcuts import redirect
 from django.utils import translation
+import random
 
 def base(request):
     return render(request,"base.html")
@@ -73,13 +74,14 @@ def perfil_jugador(request):
     user_id = request.user.id
 
     try:
-        jugador = Jugador.objects.filter(usuario_id=user_id)
-        for elem in jugador:
-            puntaje_acumulado = elem.puntaje_acumulado
+        jugadores = list(Jugador.objects.filter(usuario_id=user_id))
+        if jugadores:
+            jugadores.pop(0) 
     except Jugador.DoesNotExist:
-        puntaje_acumulado = 0  # Si no hay registro para este usuario, establecer el puntaje en 0
+        jugadores = []  # Si no hay registro para este usuario, establecer la lista vacía
 
-    return render(request, "perfil_jugador.html", {'puntaje_acumulado': puntaje_acumulado})
+
+    return render(request, "perfil_jugador.html", {'jugadores': jugadores})
 
 def editar_perfil(request):
     if request.method == 'POST':
@@ -103,7 +105,6 @@ def actualizar_puntaje(usuario, categoria, puntos):
         jugador_existente = resultados.first()
         jugador_existente.puntaje_acumulado += puntos
         jugador_existente.save() 
-    
 
 
 def help(request):
@@ -189,6 +190,7 @@ def procesar_respuesta(request):
                 # Obtener las trivias asociadas a la categoría, excluyendo las ya enviadas
                 nueva_trivia = Trivia.objects.filter(categoria=categoria).exclude(id__in=trivias_enviadas).first()
                 print(f"Nueva trivia: {nueva_trivia}")
+                print(f"Trivia id: {trivia_id}")
 
                 if nueva_trivia:
                     trivias_enviadas.append(nueva_trivia.id)
@@ -206,3 +208,70 @@ def set_language(request):
     response = redirect(request.META.get('HTTP_REFERER', '/'))
     response.set_cookie(settings.LANGUAGE_COOKIE_NAME, user_language)
     return response
+
+
+@login_required
+def trivia_sorpresa(request):
+    # Obtén todas las categorías
+    todas_las_categorias = list(Categoria.objects.all())
+
+    # Verifica si hay categorías disponibles
+    if not todas_las_categorias:
+        context = {'error': 'No hay categorías disponibles.'}
+        return render(request, 'trivia_sorpresa.html', context)
+
+    # Selecciona una categoría aleatoriamente
+    categoria_aleatoria = random.choice(todas_las_categorias)
+    print(f"Categoría seleccionada: {categoria_aleatoria.nombre}")
+
+    # Obtener la lista de trivias enviadas desde la sesión
+    trivias_enviadas = request.session.get('trivias_enviadas', [])
+
+    # Seleccionar una trivia aleatoria que no haya sido enviada
+    nueva_trivia = Trivia.objects.filter(categoria=categoria_aleatoria, tipo=1).exclude(id__in=trivias_enviadas).order_by('?').first()
+
+
+    if nueva_trivia:
+        print(f"Nueva trivia: {nueva_trivia.pregunta} (ID: {nueva_trivia.id})")
+        
+        # Agregar la trivia a la lista de enviadas y actualizar la sesión
+        trivias_enviadas.append(nueva_trivia.id)
+        request.session['trivias_enviadas'] = trivias_enviadas
+        
+        trivia_pregunta = nueva_trivia.pregunta
+    else:
+        trivia_pregunta = 'No hay trivia disponible para la categoría seleccionada.'
+
+    # Pasar los datos al contexto de la plantilla
+    if(nueva_trivia.respuesta == NULL or nueva_trivia.respuesta == 'none' ):
+        answer = '1' 
+    else: 
+        answer=nueva_trivia.respuesta
+    print("Respuesta trivia: ", answer)
+    if request.method == 'POST':
+
+        respuesta_seleccionada = int(request.POST.get('respuesta'))
+        tiempo_restante = float(request.POST.get('tiempo_restante'))
+
+
+
+        print("Respuesta seleccionada: ", respuesta_seleccionada)
+        if (respuesta_seleccionada == answer):
+            mensaje_exito = "¡FELICIDADES!"
+            print("Respuesta correcta")
+            messages.success(request, mensaje_exito)
+        else:
+            mensaje_error = f"Respuesta incorrecta. La respuesta correcta era {answer}"
+            messages.error(request, mensaje_error)
+            print(mensaje_error)
+            return redirect('home_jugador')
+
+
+    context = {
+        'categoria_aleatoria': categoria_aleatoria.nombre,
+        'trivia_pregunta': trivia_pregunta,
+        'trivia': nueva_trivia,
+        'respuesta_correcta': answer,
+        }
+   
+    return render(request, 'trivia_sorpresa.html', context)

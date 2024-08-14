@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function mostrarAlerta() {
+        Swal.fire({
+            title: '¡TRIVIA SORPRESA!',
+            html: `
+                <form id="triviaForm" method="POST" action="{% url 'trivia_sorpresa' %}" class="sorpresa">
+                    <h2>{{ trivia_pregunta }}</h2>
+                    {% csrf_token %}
+                    <button type="submit" class="boton_categoria" name="respuesta" value="1" id="boton1">{{ trivia.opcion_txt1 }}</button>
+                    <button type="submit" class="boton_categoria" name="respuesta" value="2" id="boton2">{{ trivia.opcion_txt2 }}</button>
+                    <button type="submit" class="boton_categoria" name="respuesta" value="3" id="boton3">{{ trivia.opcion_txt3 }}</button>
+                    <button type="submit" class="boton_categoria" name="respuesta" value="4" id="boton4">{{ trivia.opcion_txt4 }}</button>
+                </form>
+                <div class="timer">
+                    <div class="timer-bar" id="timer-bar"></div>
+                    <p><span id="countdown-display">15</span> </p>
+                </div>
+
+                {% if trivia.tipo == null %}
+                <style>
+                    #triviaForm {
+                    display: none; /* Oculta el formulario */
+                    }
+                    #contenedorDeMensajes{
+                    display: none;
+                    }
+                </style>
+                <div class="no-trivia">
+                <img src='{% static "./img/brainby_triste.png" %}' alt="" class="brainby_triste">
+                <h2>No hay trivias disponibles en esta categoría</h2>
+                <p>Por favor, inténtalo de nuevo más tarde.</p>
+                </div>
+                {% endif %}
+            `,
+            showConfirmButton: false
+        });
+
+        let countdown;
+        let interval;
+        const countdownDisplay = document.getElementById('countdown-display');
+        const timerBar = document.getElementById('timer-bar');
+        const buttons = document.querySelectorAll('button[name="respuesta"]');
+        const form = document.getElementById('triviaForm');
+        let buttonClicked = false;
+
+        function startCountdown() {
+            if (interval) {
+                clearInterval(interval);
+            }
+            countdown = 15.00;
+            interval = setInterval(function () {
+                countdown -= 0.01;
+                countdownDisplay.textContent = countdown.toFixed(0);
+                timerBar.style.width = (countdown / 15) * 100 + '%';
+
+                if (countdown <= 0) {
+                    clearInterval(interval);
+                    if (!buttonClicked) {
+                        countdownDisplay.textContent = '0';
+                    }
+                }
+            }, 10);
+        }
+
+        startCountdown();
+
+        buttons.forEach(button => {
+            button.addEventListener('click', function (event) {
+                buttonClicked = true;
+                clearInterval(interval);
+                const tiempoRestante = countdown.toFixed(2);
+                const inputTiempo = document.createElement('input');
+                inputTiempo.type = 'hidden';
+                inputTiempo.name = 'tiempo_restante';
+                inputTiempo.value = tiempoRestante;
+                form.appendChild(inputTiempo);
+
+                // Capturar el valor del botón clicado
+                const respuestaSeleccionada = event.target.value;
+                const respuestaCorrecta = "{{ respuesta_correcta }}";
+
+                // Comparar el valor del botón con la respuesta correcta
+                if (respuestaSeleccionada === respuestaCorrecta) {
+                    Swal.fire({
+                        title: '¡Respuesta correcta!',
+                        text: 'Te has ganado un premio de 300 puntos',
+                        icon: 'success',
+                        willClose: () => {
+                        window.location.href = "{% url 'home_jugador' %}"; 
+                        }
+                    });
+                    
+                } else {
+                    Swal.fire({
+                        title: '¡Respuesta Incorrecta!',
+                        text: 'No has ganado ningun premio',
+                        icon: 'error',
+                        willClose: () => {
+                        window.location.href = "{% url 'home_jugador' %}"; 
+                        }
+                    });
+                }
+            });
+        });
+
+        function redirectAfterDelay() {
+            setTimeout(() => {
+                window.location.href = "{% url 'home_jugador' %}";
+            }, 10000);
+        }
+
+
+    }
+
+    // Llama a la función para mostrar la alerta
+    mostrarAlerta();
+</script>
+{% endblock %}

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path, include
 from usuarios.views import login, register, exit
-from myapp.views import home_jugador, seleccionarcategoria, respondercategoria, perfil_jugador, procesar_respuesta, editar_perfil, help, set_language
+from myapp.views import home_jugador, seleccionarcategoria, respondercategoria, perfil_jugador, procesar_respuesta, editar_perfil, help, set_language, trivia_sorpresa
 from django.shortcuts import redirect
 from django.conf import settings
 from django.conf.urls.static import static
@@ -29,5 +29,7 @@ urlpatterns = [
     path('help/', help, name='help'),
     path('procesar-respuesta/', procesar_respuesta, name='procesar_respuesta'),
     path('set_language/', set_language, name='set_language'),
+    path('trivia_sorpresa/', trivia_sorpresa, name='trivia_sorpresa'),
+    
 ] 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
