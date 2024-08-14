@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% load static %}
+{% block content %}
+
+    <div class="rankingContainer">
+        <h1 class="tituloRanking">Ranking de Jugadores por Categoría</h1>
+        <div class="rankinglistado">        
+            {% for categoria, jugadores in rankingCategoria.items %}
+                <div class="ranking">
+                    
+                    
+                    <ol class="rankingCategoria">
+                        <h2 class="tituloCategoria">{{ categoria }}</h2>
+                        {% for jugador in jugadores %}
+                            <li>{{ jugador.usuario.nombre }}:<b>{{ jugador.puntaje_acumulado }} puntos</b></li>
+                            {% empty %}
+                            <b>No hay jugadores en esta categoría.</b>
+                        {% endfor %}
+                    </ol>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

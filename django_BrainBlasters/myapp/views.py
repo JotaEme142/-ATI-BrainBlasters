@@ -206,3 +206,19 @@ def set_language(request):
     response = redirect(request.META.get('HTTP_REFERER', '/'))
     response.set_cookie(settings.LANGUAGE_COOKIE_NAME, user_language)
     return response
+
+def ranking(request):
+
+    Categorias = Categoria.objects.all()  # Obtener todas las categorías
+    categorias = [categoria.nombre for categoria in Categorias]  # Obtener solo los nombres
+
+    # Diccionario para almacenar los jugadores por categoría
+    rankingCategoria = {}
+
+    for categoria in Categorias:
+        # Obtener los 3 jugadores con más puntos en cada categoría
+        topJugadores = Jugador.objects.filter(categoria=categoria).order_by("-puntaje_acumulado")[:3]
+        rankingCategoria[categoria.nombre] = topJugadores
+
+    # print(rankingCategoria)
+    return render(request,"rankingJugadores.html",{"rankingCategoria":rankingCategoria})
