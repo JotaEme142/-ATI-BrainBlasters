@@ -73,13 +73,14 @@ def perfil_jugador(request):
     user_id = request.user.id
 
     try:
-        jugador = Jugador.objects.filter(usuario_id=user_id)
-        for elem in jugador:
-            puntaje_acumulado = elem.puntaje_acumulado
+        jugadores = list(Jugador.objects.filter(usuario_id=user_id))
+        if jugadores:
+            jugadores.pop(0) 
     except Jugador.DoesNotExist:
-        puntaje_acumulado = 0  # Si no hay registro para este usuario, establecer el puntaje en 0
+        jugadores = []  # Si no hay registro para este usuario, establecer la lista vacía
 
-    return render(request, "perfil_jugador.html", {'puntaje_acumulado': puntaje_acumulado})
+
+    return render(request, "perfil_jugador.html", {'jugadores': jugadores})
 
 def editar_perfil(request):
     if request.method == 'POST':

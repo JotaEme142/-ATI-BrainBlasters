@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-13 14:03-0400\n"
+"POT-Creation-Date: 2024-08-14 17:56-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -181,14 +181,17 @@ msgstr "Editar Perfil"
 msgid "Estadísticas"
 msgstr "Estadísticas"
 
-#: .\myapp\templates\perfil_jugador.html:18
-msgid "Puntaje Acumulado: "
-msgstr "Puntaje Acumulado: "
+#: .\myapp\templates\perfil_jugador.html:21
+msgid "Categoria"
+msgstr "Categoria"
 
-#: .\myapp\templates\respondercategoria.html:54
-msgid "Puntaje: "
-msgstr "Puntaje: "
+#: .\myapp\templates\perfil_jugador.html:22
+msgid "Puntaje Acumulado"
+msgstr "Puntaje Acumulado: "
 
 #: .\myapp\templates\seleccionarcategoria.html:14
 msgid "Selecciona Categoría"
 msgstr "Seleccionar categoría"
+
+#~ msgid "Puntaje: "
+#~ msgstr "Puntaje: "

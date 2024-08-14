@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-08-13 14:03-0400\n"
+"POT-Creation-Date: 2024-08-14 17:56-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -172,7 +172,6 @@ msgid "Elige una categoría para empezar:"
 msgstr "Choose a category to start:"
 
 #: .\myapp\templates\perfil_jugador.html:11
-
 msgid "Editar"
 msgstr "Edit Profile"
 
@@ -180,14 +179,18 @@ msgstr "Edit Profile"
 msgid "Estadísticas"
 msgstr "Statistics"
 
-#: .\myapp\templates\perfil_jugador.html:18
-msgid "Puntaje Acumulado: "
-msgstr "Accumulated Score: "
+#: .\myapp\templates\perfil_jugador.html:21
+msgid "Categoria"
+msgstr "Category"
 
-#: .\myapp\templates\respondercategoria.html:54
-msgid "Puntaje: "
-msgstr "Score: "
+#: .\myapp\templates\perfil_jugador.html:22
+
+msgid "Puntaje Acumulado"
+msgstr "Accumulated Score: "
 
 #: .\myapp\templates\seleccionarcategoria.html:14
 msgid "Selecciona Categoría"
 msgstr "Select category"
+
+#~ msgid "Puntaje: "
+#~ msgstr "Score: "
