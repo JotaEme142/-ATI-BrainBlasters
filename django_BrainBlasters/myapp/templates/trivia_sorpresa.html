@@ -61,6 +61,8 @@
                     clearInterval(interval);
                     if (!buttonClicked) {
                         countdownDisplay.textContent = '0';
+                        window.location.href = "{% url 'home_jugador' %}";
+
                     }
                 }
             }, 10);
