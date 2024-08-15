@@ -54,7 +54,7 @@
         <nav class="menu">
             <ul class="lista-iconos">
               <li><a href="{% url 'home_jugador' %}"><img src='{% static "icons/home.svg" %}' alt="home" class="icon-menu"></a></li>
-              <li><a href="#"><img src='{% static "icons/rankings.svg" %}' alt="ranking" class="icon-menu"></a></li>
+              <li><a href="{% url 'ranking' %}"><img src='{% static "icons/rankings.svg" %}' alt="ranking" class="icon-menu"></a></li>
               <li><a href="{% url 'seleccionarcategoria' %}"><img src='{% static "icons/play.svg" %}' class="play-icon" alt="play"></a></li>
               <li><a href="{% url 'perfil_jugador' %}"><img src='{% static "icons/User.svg" %}' alt="user" class="icon-menu"></a></li>
               <li><a href="{% url 'help' %}"><img src='{% static "icons/help.svg" %}' alt="help" class="icon-menu"></a></li>
