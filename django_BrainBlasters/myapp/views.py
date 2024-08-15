@@ -75,8 +75,6 @@ def perfil_jugador(request):
 
     try:
         jugadores = list(Jugador.objects.filter(usuario_id=user_id))
-        if jugadores:
-            jugadores.pop(0) 
     except Jugador.DoesNotExist:
         jugadores = []  # Si no hay registro para este usuario, establecer la lista vacía
 
