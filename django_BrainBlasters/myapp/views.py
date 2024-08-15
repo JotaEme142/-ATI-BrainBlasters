@@ -243,7 +243,7 @@ def trivia_sorpresa(request):
         trivia_pregunta = 'No hay trivia disponible para la categoría seleccionada.'
 
     # Pasar los datos al contexto de la plantilla
-    if(nueva_trivia.respuesta == NULL or nueva_trivia.respuesta == 'none' ):
+    if(nueva_trivia.respuesta == None or nueva_trivia.respuesta == 'none' ):
         answer = '1' 
     else: 
         answer=nueva_trivia.respuesta
