@@ -243,16 +243,16 @@ def trivia_sorpresa(request):
         trivia_pregunta = 'No hay trivia disponible para la categoría seleccionada.'
 
     # Pasar los datos al contexto de la plantilla
-    if(nueva_trivia.respuesta == None or nueva_trivia.respuesta == 'none' ):
-        answer = '1' 
-    else: 
+    if not nueva_trivia.respuesta:
+        return redirect('homa_jugador')
+    else:
         answer=nueva_trivia.respuesta
     print("Respuesta trivia: ", answer)
     if request.method == 'POST':
 
         respuesta_seleccionada = int(request.POST.get('respuesta'))
         tiempo_restante = float(request.POST.get('tiempo_restante'))
-
+        
 
 
         print("Respuesta seleccionada: ", respuesta_seleccionada)
